@@ -14,5 +14,11 @@ Boardash de mon site:
 
 	Pas encore de mise en place de la session
 
-#Création d'une route associé à mon controller
-	$route['network'] = 'network/index';
+#Création d'une route associé à mon controller par defaut
+	$route['default_controller'] = 'network/view';
+
+#Création d'une autre route
+	Elle se chargera d'afficher toutes les pages du site, envoyées par le controller
+	$route['(:any)'] = 'network/view/$1'; 
+
+	$1 est le système dynamique hérité de l'url rewriting dans le fichier .htaccess

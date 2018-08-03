@@ -3,8 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+
 
 /*
 	My routes
@@ -20,3 +19,8 @@ $route['(:any)'] = 'network/view/$1';
 */
 
 $route['default_controller'] = 'network/view';
+
+
+
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
