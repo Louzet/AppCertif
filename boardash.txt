@@ -1,0 +1,18 @@
+Boardash de mon site:
+
+
+#Modification du fichier "application/config/config/"
+	$config['base_url'] = 'http://localhost/AppCertif/';
+	$config['index_page'] = '';
+
+#Création d'un controller "class Network"
+	Ce controller va gérer toute les pages du sites
+
+	création de la méthode index qui va s'occuper d'afficher
+	la page d'accueil.
+	Elle renverra uniquement vers la vue "views/network/home"
+
+	Pas encore de mise en place de la session
+
+#Création d'une route associé à mon controller
+	$route['network'] = 'network/index';
