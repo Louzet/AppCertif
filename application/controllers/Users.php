@@ -18,4 +18,9 @@ class Users extends CI_Controller {
 		$this->load->view('users/inscription');
 		$this->load->view('templates/_footer');
 	}
+
+	public function deconnexion()
+	{
+		
+	}
 }
