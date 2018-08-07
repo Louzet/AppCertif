@@ -25,7 +25,8 @@ class Users extends CI_Controller {
 			// get password encrypted
 			$password = sha1($this->input->post('password'));
 
-			// get email
+			// get nom
+
 			
 
 			// login user(id)
@@ -47,7 +48,7 @@ class Users extends CI_Controller {
 				$this->session->set_flashdata('Connexion réussie', 'Vous êtes maintenant connecté');
 
 				// redirect la page d'accueil
-				redirect('network/view');
+				redirect('home');
 			}
 			else
 			{
@@ -96,9 +97,8 @@ class Users extends CI_Controller {
 		}
 		else
 		{
-			$this->session->unset_userdata('user_id');
-			$this->session->unset_userdata('pseudo');
-			$this->session->unset_userdata('connect');
+			// destruction de la session
+			$this->session->sess_destroy();
 	
 			// set message flash logout session
 			$this->session->set_flashdata('Déconnexion', 'Vous êtes à présent déconnecté');

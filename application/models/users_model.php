@@ -17,13 +17,13 @@ class Users_model extends CI_Model
 
 	public function login($pseudo, $password)
 	{
+		// matches data
 		$this->db->where('pseudo', $pseudo);
 		$this->db->where('password', $password);
-		
 
 		$result = $this->db->get('users');
 
-		/* on recupère id de l'utilisateur si ce pseudo et mot de passe existe */
+		// get id from database, if existe this pseudo and password
 		if($result->num_rows() === 1)
 		{
 			return $result->row(0)->id;
@@ -32,13 +32,13 @@ class Users_model extends CI_Model
 		{
 			return FALSE;
 		}
+		
 	}
 
-	public function logout()
-	{
-
-	}
+	
 
 
 
 }
+
+
