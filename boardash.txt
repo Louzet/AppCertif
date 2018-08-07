@@ -17,8 +17,15 @@ Boardash de mon site:
 #Création d'une route associé à mon controller par defaut
 	$route['default_controller'] = 'network/view';
 
+#création d'un fichier .htaccess à la racine du site
+
 #Création d'une autre route
 	Elle se chargera d'afficher toutes les pages du site, envoyées par le controller
 	$route['(:any)'] = 'network/view/$1'; 
 
 	$1 est le système dynamique hérité de l'url rewriting dans le fichier .htaccess
+
+#Personnalisation des templates "header et footer"
+{ problemes techniques
+	#Chargement du helper url, dans le fichier "application/config/autoload"
+}

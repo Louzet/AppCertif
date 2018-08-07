@@ -1,15 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-
-
-
 /*
 	My routes
 */
 
 
+$route['connexion'] = 'users/login';
+$route['inscription'] = 'users/register';
+$route['default_controller'] = 'network/view';
 $route['(:any)'] = 'network/view/$1'; 
 /* 	
 	cette méthode me permettra de raccourcir mes URL'S
@@ -18,7 +17,6 @@ $route['(:any)'] = 'network/view/$1';
 	$1 est la variable qui renvoie toutes les vues vers 'index.php' grace au fichier '.htaccess
 */
 
-$route['default_controller'] = 'network/view';
 
 
 
