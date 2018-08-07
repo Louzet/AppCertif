@@ -1,17 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-
-
-
 /*
 	My routes
 */
 
 
-$route['users/connexion'] = 'users/connexion';
-$route['users/inscription'] = 'users/inscription';
+$route['connexion'] = 'users/login';
+$route['inscription'] = 'users/register';
 $route['default_controller'] = 'network/view';
 $route['(:any)'] = 'network/view/$1'; 
 /* 	

@@ -1,4 +1,2 @@
-<h2>Page d'Accueil</h2>
-
-
-
+<?php
+var_dump($this->session->userdata());

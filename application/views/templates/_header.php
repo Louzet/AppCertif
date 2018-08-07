@@ -27,34 +27,76 @@
 
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<form class="form-inline my-2 my-lg-0 p-2 bd-hightlight col-md-8">
-					<input for="search" class="form-control col-md-6" id="search"  type="search" placeholder="Vous cherchez quelque chose..." aria-label="Search">
-					<button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+				<form class="form-inline my-2 my-lg-0 p-2 bd-hightlight col-sm-7">
+					<input for="search" class="form-control col-md-7" id="search"  type="search" placeholder="Vous cherchez quelque chose..." aria-label="Search">
+					<button id="search" class="btn btn-success my-2 my-sm-0" type="submit">Rechercher</button>
 				</form>	
-				<ul class="navbar-nav navbar-right p-2 bd-hightlight mr-auto" id="navbar-right">
+				<ul class="navbar-nav navbar-right bd-hightlight mr-auto" id="navbar-right">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Home</a>
+						<a class="nav-link" href="#">Populaire</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
+						<a class="nav-link" href="#">Messagerie</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Compte
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<?= base_url(); ?>users/connexion">Connexion</a>
+						<a class="dropdown-item" href="<?= base_url(); ?>users/login">Connexion</a>
+						<a class="dropdown-item" href="<?= base_url(); ?>users/profil">Profil</a>
 						<a class="dropdown-item" href="#">Mes contacts</a>
 						<a class="dropdown-item" href="#">Notifications</a>
 						<a class="dropdown-item" href="#">Paramètres</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Déconnexion</a>
+						<a class="dropdown-item" href="<?= base_url(); ?>users/logout">Déconnexion</a>
 						</div>
 					</li>
 				</ul>
 			</div>
 			
 		</nav>
+
+		<!-- set message flash  -->
+		<!-- message flash register success  -->
+		<?php if($this->session->flashdata('Enregistrement réussis')) : ?>
+			<div class="alert alert-success text-center" role="alert">
+				<strong><?= $this->session->flashdata('Enregistrement réussis') ?></strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		<?php endif; ?>
+		<!-- message flash echec de connexion  -->
+		<?php if($this->session->flashdata('Connexion échouée')) : ?>
+			<div class="alert alert-danger text-center" role="alert">
+				<strong><?= $this->session->flashdata('Connexion échouée') ?></strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		<?php endif; ?>
+		<!-- message flash réussite de connexion  -->
+		<?php if($this->session->flashdata('Connexion réussie')) : ?>
+			<div class="alert alert-success text-center" role="alert">
+				<strong><?= $this->session->flashdata('Connexion réussie') ?></strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		<?php endif; ?>
+		<!-- message flash Déconnexion  -->
+		<?php if($this->session->flashdata('Déconnexion')) : ?>
+			<div class="alert alert-warning text-center" role="alert">
+				<strong><?= $this->session->flashdata('Déconnexion') ?></strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		<?php endif; ?>
+
+
+
 
 
 		<div class="container-fluid">
