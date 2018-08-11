@@ -9,7 +9,7 @@ class Network extends CI_Controller {
 		$title = $data['title'].'- App Code Igniter';
 
 
-		$this->load->view('templates/_header');	
+		$this->load->view('templates/_header', $data);	
 		$this->load->view('network/'.$page, $data, $title);
 		$this->load->view('templates/_footer');
 		

@@ -1,23 +1,4 @@
 /* ##### NavBar ###### */
-.dropdown-menu{
 
-	left: auto;
-}
-#nav{
-	display: flex !important;
-	justify-content: space-around !important;
-}
-#search_bar{
-	float: none;
-}
-#navbar-right{
-	margin: 0 !important;
-	position: relative;
-	right: 0;
-	top:0;
-}
-input#search{
-	outline: none !important;
-	border: none;
-}
 /* ##### page connexion ###### */
+

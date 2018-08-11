@@ -5,6 +5,7 @@ class Users extends CI_Controller {
 
 	public function login() // home remplacera la page d'accueil du frameworks
 	{
+		$data['title'] = 'login page';
 		/* validation form */
 		$this->form_validation->set_rules('pseudo', 'Pseudo', 'trim|required|alpha_dash|encode_php_tags');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|alpha_dash|encode_php_tags');
@@ -12,10 +13,9 @@ class Users extends CI_Controller {
 		if($this->form_validation->run() == false)
 		{
 			/* chargement de la vue page login */
-			$this->load->view('templates/_header');	
-			$this->load->view('users/login');
+			$this->load->view('templates/_header', $data);	
+			$this->load->view('users/login', $data);
 			$this->load->view('templates/_footer');
-
 		}
 		else
 		{
@@ -24,10 +24,6 @@ class Users extends CI_Controller {
 
 			// get password encrypted
 			$password = sha1($this->input->post('password'));
-
-			// get nom
-
-			
 
 			// login user(id)
 			$user_id = $this->users_model->login($pseudo, $password);
@@ -56,7 +52,7 @@ class Users extends CI_Controller {
 				$this->session->set_flashdata('Connexion échouée', 'Impossible de se connecter ! verifiez vos identifiants');
 				
 				/* redirect vers la page login */
-				redirect('users/login');
+				redirect('users/login', $data);
 
 	
 			}
@@ -74,8 +70,9 @@ class Users extends CI_Controller {
 
 		if($this->form_validation->run() === false)
 		{
+			$data['title'] = 'register page';
 			/* redirection vers la page d'inscription */
-			$this->load->view('templates/_header');
+			$this->load->view('templates/_header', $data);
 			$this->load->view('users/register');
 			$this->load->view('templates/_footer');
 		}
@@ -111,7 +108,10 @@ class Users extends CI_Controller {
 
 	public function profil()
 	{
-		$this->load->view('templates/_header');
+		$data['title'] = 'page de profil';
+
+
+		$this->load->view('templates/_header', $data);
 		$this->load->view('users/profil');
 		$this->load->view('templates/_footer');
 	}

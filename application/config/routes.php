@@ -6,8 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['home'] = '';
-$route['connexion'] = 'users/login';
-$route['inscription'] = 'users/register';
+$route['users/login'] = 'users/login';
+$route['users/register'] = 'users/register';
 $route['default_controller'] = 'network/view';
 $route['(:any)'] = 'network/view/$1'; 
 /* 	
