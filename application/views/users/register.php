@@ -31,7 +31,7 @@
 						<input type="text" name="prenom" placeholder="Prénom..." class="register-prenom form-control " id="register-prenom" required>
 					</div>
 					<div class="form-group">
-						<label for="register-pseudo"><strong class="blue">Nomd d'utilisateur(Pseudo)</strong>*</label>
+						<label for="register-pseudo"><strong class="blue">Nom d'utilisateur(Pseudo)</strong>*</label>
 						<input type="text" name="pseudo" placeholder="Saisissez votre Pseudo..." class="register-pseudo form-control " id="register-pseudo" required>
 					</div>
 					<div class="form-group">

@@ -1,23 +1,14 @@
-/* ##### NavBar ###### */
-.dropdown-menu{
-
-	left: auto;
+/* ##### page home ###### */
+#body{
+    /* overflow-x: hidden !important; */
 }
-#nav{
-	display: flex !important;
-	justify-content: space-around !important;
+#main-content{
+    background-image: url('../images/cover-image.jpg');
+    background-attachment:fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    min-height: 1000rem;
 }
-#search_bar{
-	float: none;
+.block{
+    min-width: 50rem;
 }
-#navbar-right{
-	margin: 0 !important;
-	position: relative;
-	right: 0;
-	top:0;
-}
-input#search{
-	outline: none !important;
-	border: none;
-}
-/* ##### page connexion ###### */

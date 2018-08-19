@@ -18,8 +18,20 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function index($data, $hash = FALSE)
 	{
-		$this->load->view('welcome_message');
+
+        $data['hash'] = sha1(md5($data['user'][0]['created_at'].$data['user'][0]['pseudo']));
+
+        $hash = $data['hash'];
+
+        if($this->session->userdata('connect'))
+        {
+            redirect('network/home/{$hash}');
+        }
+        else
+        {
+            redirect("network/home");
+        }
 	}
 }
