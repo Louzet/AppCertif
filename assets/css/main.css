@@ -1,4 +1,14 @@
-/* ##### NavBar ###### */
-
-/* ##### page connexion ###### */
-
+/* ##### page home ###### */
+#body{
+    /* overflow-x: hidden !important; */
+}
+#main-content{
+    background-image: url('../images/cover-image.jpg');
+    background-attachment:fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    min-height: 1000rem;
+}
+.block{
+    min-width: 50rem;
+}

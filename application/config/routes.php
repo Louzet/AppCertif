@@ -5,11 +5,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	My routes
 */
 
-$route['home'] = '';
-$route['users/login'] = 'users/login';
-$route['users/register'] = 'users/register';
-$route['default_controller'] = 'network/view';
-$route['(:any)'] = 'network/view/$1'; 
+$route['profil'] = 'users/profil';
+$route['login'] = 'users/login';
+$route['register'] = 'users/register';
+$route['default_controller'] = 'users/login';
+//$route['network/home/(:any)'] = 'network/view';
+//$route['(:any)'] = 'network/view/$1';
 /* 	
 	cette méthode me permettra de raccourcir mes URL'S
 	blog représente mon controller

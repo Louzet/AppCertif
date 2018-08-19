@@ -1,11 +1,9 @@
 <html>
 	<head>
-		<title><?= $title; ?></title>
+		<title><?= $title; ?> | <?= WEBSITE_NAME; ?></title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		
-		
 
 		<link rel="stylesheet" href="<?= base_url(); ?>assets/css/reset.css">
 		<link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.min.css">
@@ -15,12 +13,13 @@
 
 	</head>
 
+
 	<body>
 		<!-- Navbar -->
 		
 		<!-- Top menu -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand p-2 bd-highlight" href="<?= base_url() ; ?>">THAG</a>
+			<a class="navbar-brand p-2 bd-highlight" href='<?= site_url("network/home/{$hash}"); ?>'>THAG</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -38,29 +37,36 @@
 					<li class="nav-item px-2">
 						<a class="nav-link" href="#">Messagerie</a>
 					</li>
-					<li class="nav-item dropdown px-2">
+					<li class="nav-item dropdown my-auto">
+
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<?php if($this->session->userdata('pseudo')){
+						<?php if($this->session->userdata('pseudo')){  ?>
+                            <img src="<?= base_url(); ?>assets/images/profil_pictures/<?php if(!empty($user[0]['profil_image'])){ echo $user[0]['profil_image'];} else{ echo "noimage.png";} ?>" class="rounded image-fluid" alt="..." width="30" heigh="30">
+
+                            <span class="text-center">
+                            <?php
 							echo ucfirst($this->session->userdata('pseudo'));
+							?>
+							</span>
+                            <?php
 						}else{
 							echo "Compte";
 						}
 						?>
 						</a>
 						<div class="dropdown-menu " aria-labelledby="navbarDropdown">
-						<?php if(!$this->session->userdata('connect')) : ?>
-							<a class="dropdown-item" href="<?= base_url(); ?>users/login">Connexion</a>
-							<div class="dropdown-divider"></div>
-						<?php endif; ?>
-						<a class="dropdown-item" href="<?= base_url(); ?>users/profil">Profil</a>
-						<a class="dropdown-item" href="#">Mes contacts</a>
-						<a class="dropdown-item" href="#">Notifications</a>
-						<a class="dropdown-item" href="#">Paramètres</a>
-						<div class="dropdown-divider"></div>
-						<?php if($this->session->userdata('connect')) : ?>
-							<a class="dropdown-item" href="<?= base_url(); ?>users/logout">Déconnexion</a>
-						<?php endif; ?>
+                            <?php if(!$this->session->userdata('connect')) : ?>
+                                <a class="dropdown-item" href="<?= base_url(); ?>users/login">Connexion</a>
+                            <?php endif; ?>
+
+                            <?php if($this->session->userdata('connect')) : ?>
+                            <a class="dropdown-item" href='<?= site_url("users/profil/{$hash}"); ?>'>Profil</a>
+                            <a class="dropdown-item" href="#">Mes contacts</a>
+                            <a class="dropdown-item" href="#">Notifications</a>
+                            <a class="dropdown-item" href="#">Paramètres</a>
+                            <a class="dropdown-item alert alert-danger" href="<?= base_url(); ?>users/logout">Déconnexion</a>
 						</div>
+                        <?php endif; ?>
 					</li>
 				</ul>
 			</div>
@@ -109,4 +115,6 @@
 
 
 
-		<div class="container-full">
+		<div class="container-fluid" id="body">
+
+

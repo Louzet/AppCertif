@@ -5,7 +5,7 @@
 			<div class="row login-form mb-2">
 				<div class="col-md-8 offset-md-2">
 					<div class="description">
-						<h2 class="text-center">THIG</h2>
+						<h2 class="text-center">THAG</h2>
 					</div>
 				</div>
 				<div class="col-md-10 offset-md-1 col-lg-6 offset-lg-3 mb-5 my-2">
@@ -13,14 +13,18 @@
 					<?php echo form_open('users/login');?>
 						<div class="form-group">
 							<label for="login-pseudo"><strong>Nom d'utilisateur (Pseudo)</strong></label>
-							<input type="text" name="pseudo" placeholder="Nom d'utilisateur..." class="form-control" id="login-pseudo">
-								<?= form_error('pseudo'); ?>
+							<input type="text" name="pseudo" placeholder="Nom d'utilisateur..." class="form-control" id="login-pseudo" value="">
+                            <?= form_error('pseudo'); ?>
 						</div>
 						<div class="form-group">
 							<label for="login-password"><strong>Mot de passe</strong></label>
 							<input type="password" name="password" placeholder="Mot de passe..." class="form-control" id="login-password">
-								<?= form_error('password'); ?>
+                            <?= form_error('password'); ?>
 						</div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" name="remember" class="form-check-input" id="remember">
+                            <label for="remember" class="form-ckeck-label">Remember me</label>
+                        </div>
 						<button type="submit" class="btn btn-success btn-block">Thag me !</button>
 					<?php echo form_close(); ?>
 					
