@@ -3,22 +3,18 @@ class Users_model extends CI_Model
 {
     private $table = 'users';
 
-	public function register()
+	public function register($nom, $prenom, $pseudo, $email, $password, $created_at)
 	{
-		$data = array(
-			'nom' => $this->input->post('nom'),
-			'prenom' => $this->input->post('prenom'),
-			'pseudo' => $this->input->post('pseudo'),
-			'email' => $this->input->post('email'),
-			'password' => sha1($this->input->post('password'))
-		);
+        $this->db->set('nom', $nom);
+        $this->db->set('prenom', $prenom);
+        $this->db->set('pseudo', $pseudo);
+        $this->db->set('email', $email);
+        $this->db->set('password', $password);
 
-        $created_at = array(
-            'created_at' => unix_to_human(time(), TRUE, 'eu')
-        );
+        $this->db->set('created_at', $created_at);
 
 		/* enregistrement des données dans la BDD */
-		return $this->db->insert($this->table, $data, $created_at);
+		return $this->db->insert($this->table);
 	}
 
 	public function login($pseudo, $password)

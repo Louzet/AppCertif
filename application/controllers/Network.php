@@ -15,26 +15,5 @@ class Network extends CI_Controller {
 		
 	}
 
-    public function home($id = FALSE, $hash = FALSE)
-    {
-        if($this->session->userdata('connect') == NULL)
-        {
-            redirect('users/login');
-        }
 
-        // get the user's data
-        $data['user'] = $this->users_model->profil($id);
-
-        // hash for the uri
-        $data['hash'] = sha1(md5($data['user'][0]['created_at'].$data['user'][0]['pseudo']));
-        // $hash = $data['hash'];
-
-        // $data['title'] = ucfirst($page);
-        $data['title'] = 'Home - App Code Igniter';
-        // charger les infos user contenu dans $data dans ce controller pour afficher la photo de profil utilisateur
-        //$this->output->enable_profiler(true);
-        $this->load->view('templates/_header', $data);
-        $this->load->view('network/home', $data);
-        $this->load->view('templates/_footer');
-    }
 }
