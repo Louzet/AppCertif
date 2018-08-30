@@ -18,6 +18,7 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+<<<<<<< HEAD
 	public function index($data, $hash = FALSE)
 	{
 
@@ -25,6 +26,13 @@ class Welcome extends CI_Controller {
 
         $hash = $data['hash'];
 
+=======
+    public function index($data, $hash = FALSE)
+    {
+
+        $data['hash'] = sha1(md5($data['user'][0]['created_at'].$data['user'][0]['pseudo']));
+        $hash = $data['hash'];
+>>>>>>> dev-correction
         if($this->session->userdata('connect'))
         {
             redirect('network/home/{$hash}');
@@ -33,5 +41,9 @@ class Welcome extends CI_Controller {
         {
             redirect("network/home");
         }
+<<<<<<< HEAD
 	}
+=======
+    }
+>>>>>>> dev-correction
 }

@@ -23,7 +23,15 @@ $lang['is_natural_no_zero']		= "Le champ %s ne peut contenir que des nombres plu
 $lang['decimal']				= "Le champ %s doit contenir un nombre d&eacute;cimal.";
 $lang['less_than']				= "Le champ %s doit contenir un nombre inf&eacute;rieur &agrave; %s.";
 $lang['greater_than']			= "Le champ %s doit contenir un nombre sup&eacute;rieur &agrave; %s.";
+<<<<<<< HEAD
 
 
 /* End of file form_validation_lang.php */
 /* Location: ./system/language/french/form_validation_lang.php */
+=======
+$lang['callback_pseudo_exist']  = "Ce pseudo n'existe pas !";
+
+
+/* End of file form_validation_lang.php */
+/* Location: ./system/language/french/form_validation_lang.php */
+>>>>>>> dev-correction

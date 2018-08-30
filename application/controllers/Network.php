@@ -16,6 +16,7 @@ class Network extends CI_Controller {
 		
 	}
 
+<<<<<<< HEAD
 	public function home($id = FALSE, $hash = FALSE)
     {
         if($this->session->userdata('connect') == NULL)
@@ -41,5 +42,7 @@ class Network extends CI_Controller {
     }
 
 
+=======
+>>>>>>> dev-correction
 
 }
