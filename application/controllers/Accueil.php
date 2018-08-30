@@ -2,12 +2,7 @@
 
 class Accueil extends CI_Controller
 {
-    public function __construct()
-    {
-        $this->load->database();
-        $this->session->userdata();
-    }
-    
+
     function index($id = FALSE, $hash = FALSE)
     {
         if ($this->session->userdata('connect') == NULL) {
@@ -21,12 +16,14 @@ class Accueil extends CI_Controller
             $hash = $data['hash'];
 
             // $data['title'] = ucfirst($page);
-            $data['title'] = 'Home - App Code Igniter';
+            $data['title'] = 'Accueil';
             // charger les infos user contenu dans $data dans ce controller pour afficher la photo de profil utilisateur
             //$this->output->enable_profiler(true);
             $this->load->view('templates/_header', $data, $hash);
-            $this->load->view('accueil_view', $data);
-            $this->load->view('templates/_footer');
+            $this->load->view('templates/_nav');
+			$this->load->view('accueil_view', $data);
+			$this->load->view('templates/_footer');
+            // $this->load->view('templates/_footer');
         }
     }
 }

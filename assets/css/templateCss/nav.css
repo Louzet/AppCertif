@@ -1,0 +1,18 @@
+.navbar{
+    padding: 0.2rem  -0.8rem!important;
+
+}
+.navbar-brand{
+    padding: 0;
+    margin-left: 0.5rem;
+}
+.navbar-brand a{
+
+    text-indent: unset !important;
+}
+.navbar-brand, .navbar-brand h2{
+    color : #ffffff !important;
+}
+.top-content{
+    padding: 3.2rem 0 3.2rem 0;
+}

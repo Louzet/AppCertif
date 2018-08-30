@@ -1,0 +1,199 @@
+.profile-card{
+	padding: 10px 20px;
+	background-image: linear-gradient(to right, #b2ccb2, #8aa28a, #647964, #415341, #203020);
+	color: #000;
+	
+}
+.profile-card img{
+	border: 7px solid #fff;
+    float: left;
+    margin-right: 20px;
+    position: relative;
+    top: -30px;
+	border-radius: 50%;
+	width: 85px;
+	height: 85px;
+}
+
+ul.nav-aside{
+	margin-left: 20px;
+    margin-right: 20px;
+    margin: 0 0 40px 0;
+}
+
+ul.nav-aside li{
+	list-style: none;
+    display: block;
+	padding: 1rem 1.8rem;
+	list-style: none;
+	border-bottom: 1px solid #8aa28a;
+	border-left: 1px solid #8aa28a;
+	border-right: 1px solid #8aa28a;
+}
+
+ul.nav-aside li a{
+	color: #000;
+	font-size: 1.1rem;
+	font-weight: 500;
+	
+}
+
+ul.nav-aside #ion-home{
+	color: #8dc63f;
+	font-size: 18px;
+    margin-right: 15px;
+    float: left;
+}
+
+ul.nav-aside #ion-profil{
+	color: #662d91;
+	font-size: 18px;
+    margin-right: 15px;
+    float: left;
+}
+
+ul.nav-aside #ion-amis{
+	color: #ee2a7b;
+	font-size: 18px;
+    margin-right: 15px;
+    float: left;
+}
+
+ul.nav-aside #ion-message{
+	color: #f7941e;
+	font-size: 18px;
+    margin-right: 15px;
+    float: left;
+}
+
+ul.nav-aside #ion-images{
+	color: #1c75bc;
+	font-size: 18px;
+    margin-right: 15px;
+    float: left;
+}
+
+ul.nav-aside #ion-videos{
+	color: #9e1f63;
+	font-size: 18px;
+    margin-right: 15px;
+    float: left;
+}
+
+#main-content{
+	box-sizing: border-box;
+}
+#main-content .post-image{
+	width: 480px;
+	height: calc(480px / (16 / 9));
+	border-radius: 5px;
+
+}
+
+.post-content{
+	padding: 10px 10px 12.5px 10px;
+	border: 1px solid #b4babf;
+}
+
+.user-info{
+	box-sizing: border-box;
+}
+
+.user-info img{
+	vertical-align: middle;
+	border: 0;
+	border-radius: 5px;
+}
+.user-info span{
+	color: #27aae1;
+	margin-bottom: 2px;
+	font: 1rem;
+}
+.user-info .text-muted {
+    color: #939598;
+}
+.user-info p {
+	margin: 0 0 10px;
+}
+
+.profile-link {
+    font-weight: 600;
+}
+.user-info a{
+    text-decoration: none;
+}
+
+
+.user-info .following {
+	color: #fff;
+	padding: 5px 8px;
+	background:#8dc63f;
+    font-size: 12px;
+    margin-left: 20px;
+}
+.user-info .following a{
+	color: #fff;
+	cursor: pointer;
+}
+
+.float-right #ion-ellipsis{
+	color: #007bff;
+	font-size: 1.6rem;
+	cursor: pointer;
+}
+
+.float-right .dropdown-toggle::before{
+	content: none;
+}
+
+.float-right .dropdown-toggle::after{
+	content: none;
+}
+.profile-photo-md{
+	height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.pull-left{
+	float: left!important;
+}
+.meta-post .published{
+	line-height: 1.15rem;
+}
+
+
+.meta-post .reaction{
+	border-bottom:2px solid #333;
+}
+
+.meta-post #thumbs-up{
+	color: #1c94e0;
+	font-size: 1.5em;
+}
+
+.meta-post #thumbs-down{
+	color:  #e62117;
+	font-size: 1.5em;
+}
+
+#photos-friends{
+	border: 1px solid #b4babf; 
+	max-height: 430px;
+}
+
+#photos-friends .icon-connect{
+	color: #8dc63f;
+}
+
+#photos-friends .titleh4{
+	margin-top: 3px;
+	padding: 10px;
+	border-bottom: 3px solid #b4babf;
+	color: #3b3b3b;
+}
+.brique-photo{
+	width: 100px;
+	height: 100px;
+	border: 1px solid #3b3b3b;
+}

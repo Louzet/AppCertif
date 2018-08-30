@@ -7,14 +7,18 @@ class Inscription extends  CI_Controller
     {
         parent::__construct();
 
+
+
     }
 
 
     public function index()
     {
         if ($this->session->userdata('user_id')) {
-            redirect('home');
+            redirect('accueil');
         } else {
+            $data['title'] = 'Inscription';
+            
             /* validation du formulaire */
             $this->form_validation->set_rules('nom', 'Nom', 'trim|required|alpha_dash|encode_php_tags');
             $this->form_validation->set_rules('prenom', 'Prenom', 'trim|required|alpha_dash|encode_php_tags');
@@ -24,15 +28,17 @@ class Inscription extends  CI_Controller
 
             if ($this->form_validation->run() === false) {
                 /* redirection vers la page d'inscription */
-                $this->load->view('templates/_header');
+
+                $this->load->view('templates/_header', $data);
                 $this->load->view('templates/_nav');
                 $this->load->view('inscription_view');
                 $this->load->view('templates/_footer');
+
             } else {
 
-                $nom = $this->input->post('nom');
-                $prenom = $this->input->post('prenom');
-                $pseudo = $this->input->post('pseudo');
+                $nom = ucfirst($this->input->post('nom'));
+                $prenom = ucfirst($this->input->post('prenom'));
+                $pseudo = ucfirst($this->input->post('pseudo'));
                 $email = $this->input->post('email');
                 $password = sha1($this->input->post('password'));
 

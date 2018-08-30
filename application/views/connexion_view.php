@@ -1,42 +1,45 @@
-<div class="top-content my-5 page_connexion">
+<div class="container">
 
-    <div>
+<div class="row">
+	<div class="col-md-6 offset-md-6">
+		
 
-        <div class="row mb-2">
-            <div class="col-md-8 offset-md-2">
+		<div class="box-form my-5">
+		<h3 class="text-center mb-1">Connectez vous</h3>
 
-                <p class="description">
-                    <?php echo '<h2 class="text-center">' . WEBSITE_NAME. '</h2>' ?>
-                </p>
+			<!-- message flash échec de connexion  -->
+			<?php if($this->session->flashdata('Connexion échouée')) : ?>
+				<div class="alert alert-danger text-center" role="alert">
+					<strong><?= $this->session->flashdata('Connexion échouée') ?></strong>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			<?php endif; ?>
+		
+			<?= form_open('connexion'); ?>
+				<div class="form-group">
+					<?= form_label("Nom d'utilisateur (pseudo)*", 'pseudo'); ?>
+					<input type="text" name="pseudo" placeholder="Nom d'utilisateur..." class="login-input form-control" id="login-pseudo" value="<?= set_value('pseudo'); ?>" autofocus>
+					<?= form_error("pseudo", "<div class='text-danger errors'>", "</div>") ?>
+				</div>
+				
+				<div class="form-group">
+				<?= form_label("Mot de passe", 'password'); ?>
+					<input type="password" name="password" placeholder="Mot de passe..." class="login-input form-control" id="login-password" autocomplete="autocomplete">
+					<?= form_error("password", "<div class='text-danger errors'>", "</div>") ?>
+				</div>
 
-                <section class="login-form" style="padding: 2rem; background-color: #fff !important; border: 1px solid #000;">
+				<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" name="remember" id="remember">
+					<?= form_label("<strong>Se souvenir de moi ?</strong>", "remember"); ?>
+				</div>
+	
+				<button type="submit" class="btn btn-success btn-block">Thag me !</button>
+			<?= form_close(); ?>
+		</div>
 
-                    <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-4 mb-5 my-2 mt-5">
-                        <p class="lead text-center">CONNECTEZ VOUS</p>
-                        <form role="form" action="" method="post">
-                            <div class="form-group">
-                                <label for="login-pseudo text-left">Nom d'utilisateur (Pseudo)</label>
-                                <input type="text" name="pseudo" placeholder="Nom d'utilisateur..." class="form-control" id="login-pseudo">
-                            </div>
-                            <div class="form-group">
-                                <label for="login-password">Mot de passe</label>
-                                <input type="password" name="password" placeholder="Mot de passe..." class="form-control" id="login-password">
-                            </div>
-                            <button type="submit" class="btn btn-success btn-block">Thag me !</button>
-                        </form>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="text-center">
-                                <a style="color: #000; font-weight: 500;" href="<?= base_url(); ?>inscription">Vous n'avez Toujours pas de compte ? </p>
-                            </p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
+	</div>
+</div>
 
 </div>

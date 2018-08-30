@@ -17,25 +17,6 @@ class Users_model extends CI_Model
 		return $this->db->insert($this->table);
 	}
 
-	public function login($pseudo, $password)
-	{
-		// matches data
-		$this->db->where('pseudo', $pseudo);
-		$this->db->where('password', $password);
-
-		$result = $this->db->get($this->table);
-
-		// get id from database, if existe this pseudo and password
-		if($result->num_rows() > 0)
-		{
-			return $result->row(0)->id;
-		}
-		else
-		{
-			return FALSE;
-		}
-		
-	}
 
     public function profil()
     {

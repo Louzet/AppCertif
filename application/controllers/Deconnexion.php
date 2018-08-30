@@ -1,12 +1,12 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-if (! function_exists('deconnexion'))
+class Deconnexion extends CI_Controller
 {
-    function deconnexion()
+    function index()
     {
         if(!$this->session->userdata('connect'))
         {
-            redirect('users/login');
+            redirect('connexion');
         }
         else
         {
@@ -17,9 +17,12 @@ if (! function_exists('deconnexion'))
             $this->session->set_flashdata('Déconnexion', 'Vous êtes à présent déconnecté');
 
             // redirect to home page
-            redirect('users/login');
+            redirect('connexion');
         }
     }
-
 }
+
+
+
+
 
