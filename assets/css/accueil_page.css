@@ -1,4 +1,4 @@
-.profile-card{
+﻿.profile-card{
 	padding: 10px 20px;
 	background-image: linear-gradient(to right, #b2ccb2, #8aa28a, #647964, #415341, #203020);
 	color: #000;
@@ -87,6 +87,8 @@ ul.nav-aside #ion-videos{
 	width: 480px;
 	height: calc(480px / (16 / 9));
 	border-radius: 5px;
+	border: 1px solid #b4babf;
+	padding: 0.3rem;
 
 }
 
@@ -107,7 +109,9 @@ ul.nav-aside #ion-videos{
 .user-info span{
 	color: #27aae1;
 	margin-bottom: 2px;
-	font: 1rem;
+	width: 50px;
+    height: 50px;
+    display: inline;
 }
 .user-info .text-muted {
     color: #939598;
@@ -122,7 +126,6 @@ ul.nav-aside #ion-videos{
 .user-info a{
     text-decoration: none;
 }
-
 
 .user-info .following {
 	color: #fff;
@@ -149,6 +152,7 @@ ul.nav-aside #ion-videos{
 .float-right .dropdown-toggle::after{
 	content: none;
 }
+
 .profile-photo-md{
 	height: 50px;
     width: 50px;
@@ -158,10 +162,10 @@ ul.nav-aside #ion-videos{
 .pull-left{
 	float: left!important;
 }
+
 .meta-post .published{
 	line-height: 1.15rem;
 }
-
 
 .meta-post .reaction{
 	border-bottom:2px solid #333;
@@ -182,7 +186,7 @@ ul.nav-aside #ion-videos{
 	max-height: 430px;
 }
 
-#photos-friends .icon-connect{
+.icon-connect{
 	color: #8dc63f;
 }
 
@@ -190,10 +194,167 @@ ul.nav-aside #ion-videos{
 	margin-top: 3px;
 	padding: 10px;
 	border-bottom: 3px solid #b4babf;
-	color: #3b3b3b;
+color: #3b3b3b;
 }
+
 .brique-photo{
 	width: 100px;
 	height: 100px;
 	border: 1px solid #3b3b3b;
+}
+/**
+ * formulaire servant à poster un status, article
+**/
+
+.post-form
+{
+	padding: 10px 10px 12.5px 10px;
+	border: 1px solid #b4babf;
+}
+.field-text-large{
+	height: 5.2rem !important;
+	font-size:0.9rem;
+}
+
+.field-text-large:focus{
+	box-shadow: none;
+	border: 1px solid #b4babf;
+}
+
+/**
+ * on personnalise le label comme on veut
+**/
+.label_file {
+    cursor: pointer;
+    color: #00b1ca;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+.label_file:hover {
+    color: #25a5c4;
+}
+
+/**
+ * et on masque le input
+ **/
+.input-file {
+    display: none;
+}
+
+#ion-camera{
+	color: #1c75bc;
+	font-size: 1.8rem;
+	padding: 0.3rem;
+	border: 0.1rem solid #1c75bc;
+	border-radius: 5px;
+	margin-right: 15px;
+	float: left;
+}
+
+#ion-camera:hover{
+	color: #fff;
+	background-color: #1c75bc;
+}
+
+button.scroll{
+    position:fixed;
+	bottom:40px;
+	right:20px;
+	background:transparent;
+	border:none;
+    font-size:150%;
+}
+
+
+/***********  css barre de recherche ************/
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+.panel > .list-group .list-group-item:first-child {
+    /*border-top: 1px solid rgb(204, 204, 204);*/
+}
+@media (max-width: 767px) {
+    .visible-xs {
+        display: inline-block !important;
+    }
+    .block {
+        display: block !important;
+        width: 100%;
+        height: 1px !important;
+    }
+}
+#back-to-bootsnipp {
+    position: fixed;
+    top: 10px; right: 10px;
+}
+
+
+.c-search > .form-control {
+   border-radius: 0px;
+   border-width: 0px;
+   border-bottom-width: 1px;
+   font-size: 1.3em;
+   padding: 12px 12px;
+   height: 44px;
+   outline: none !important;
+}
+.c-search > .form-control:focus {
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none;
+}
+.c-search > .input-group-btn .btn {
+   border-radius: 0px;
+   border-width: 0px;
+   border-left-width: 1px;
+   border-bottom-width: 1px;
+   height: 44px;
+}
+
+
+.c-list {
+    padding: 0px;
+    min-height: 44px;
+}
+.title {
+    display: inline-block;
+    font-size: 1.7em;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+ul.c-controls {
+    list-style: none;
+    margin: 0px;
+    min-height: 44px;
+}
+
+ul.c-controls li {
+    margin-top: 8px;
+    float: left;
+}
+
+ul.c-controls li a {
+    font-size: 1.7em;
+    padding: 11px 10px 6px;   
+}
+ul.c-controls li a i {
+    min-width: 24px;
+    text-align: center;
+}
+
+ul.c-controls li a:hover {
+    background-color: rgba(51, 51, 51, 0.2);
+}
+
+.c-toggle {
+    font-size: 1.7em;
+}
+
+.name {
+    font-size: 1.7em;
+    font-weight: 700;
+}
+
+.c-info {
+    padding: 5px 10px;
+    font-size: 1.25em;
 }

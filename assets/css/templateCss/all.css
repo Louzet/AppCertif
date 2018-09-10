@@ -3,32 +3,34 @@
     font-family: 'Montserrat', sans-serif !important;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 body{
-	overflow: hidden;
-	height: 100vh;
-	width: 100vw;
+	box-sizing: border-box;
 }
 
-.text-left{
+.text-left, .pull-left{
 	float: left;
 }
-/* à partir de 500px  */
+
+.text-right, .pull-right{
+	float: right;
+}
+/* à partir de 500px 
 @media only screen and (min-width:500px){
     body{
         background: olive;
     }
 }
 
-/* à partir de 1000px */
+à partir de 1000px
 @media only screen and (min-width:1000px){
     body{
         background:palegreen;
     }
 }
 
-/* à partir de 1000px et jusqu'à 1200px en mode vertical */
+à partir de 1000px et jusqu'à 1200px en mode vertical
 @media only screen and (min-width:1000px) and (max-width:1200px) and (orientation:portrait){
     body{
         background:palegreen;
@@ -36,7 +38,7 @@ body{
 
 }
 
-/* à partir de 1000px et jusqu'à 1200px en mode horizontal */
+à partir de 1000px et jusqu'à 1200px en mode horizontal
 @media only screen and (min-width:1000px) and (max-width:1200px) and (orientation:landscape){
     body{
         background:gold;
@@ -44,9 +46,9 @@ body{
 
 }
 
-/* résolution 2dppx */
+résolution 2dppx 
 @media only screen and (min-resolution:1dppx) and (max-resolution: 2dppx){
     h1{
         color:fuchsia;
     }
-}
+} */

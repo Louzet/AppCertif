@@ -1,26 +1,32 @@
 <!-- Navbar -->
 
 <!-- Top menu -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
 
-    <a class="navbar-brand text-center underline" href="<?= base_url(); ?>accueil" style="font-size: 3rem; letter-spacing: 4px; color: #fff; text-shadow: 4px 4px 2px rgba(150, 150, 150, 1); "><?= WEBSITE_NAME ; ?></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <a class="navbar-brand text-center underline" href="<?= site_url(); ?>" style="font-size: 3rem; letter-spacing: 4px; color: #fff; text-shadow: 4px 4px 2px rgba(150, 150, 150, 1); "><?= WEBSITE_NAME ; ?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav  bd-hightlight ml-auto ">
+		<ul class="navbar-nav bd-hightlight ml-auto ">
 			<li class="nav-item active px-2">
-				<a class="nav-link" href="#">Accueil</a>
+				<a class="nav-link" href="<?= site_url(); ?>">Accueil</a>
 			</li>
 
 			<li class="nav-item px-2">
-				<a class="nav-link" href="#">Populaire</a>
+				<a class="nav-link" href="<?= site_url(); ?>">Populaire</a>
 			</li>
 
 		</ul>
-        <form class="form-inline my-2 p-2  offset-sm-1 col-sm-10 col-md-3 col-lg-5 mx-auto">
-            <input for="search" class="form-control col-sm-6"  type="search" placeholder="Vous cherchez quelque chose..." aria-label="Search">
-            <button id="search" class="btn btn-success my-2 my-sm-0 col-sm-4" type="submit">Rechercher</button>
+        <form class="mx-auto my-auto m-perso">
+			<div class="form-group">
+				
+				<input type="text" class="form-control" name="search_people" id="search_people" placeholder="Vous recherchez quelque chose...">
+				<div id="display_result" class="display_result">blablabla</div>
+				
+			</div>
+			
         </form>
         <ul class="navbar-nav navbar-right bd-hightlight ml-auto" id="navbar-right">
             <li class="nav-item active">
@@ -31,7 +37,7 @@
                     </li>
 
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#">lj9x1hc0</a>
+                        <a class="nav-link" href="#">jsais pas encore</a>
                     </li>
 
                     <li>
@@ -58,30 +64,12 @@
                     </li>
                     <?php endif; ?>
 
-
-
-
-
-<!--                    <li class="nav-item dropdown my-auto" >-->
-<!---->
-<!--                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--                            --><?php //if(!$this->session->userdata('connect')) : ?>
-<!--                                <a class="dropdown-item" href="--><?//= base_url(); ?><!--connexion">Connexion</a>-->
-<!--                            --><?php //endif; ?>
-<!--                            --><?php //if($this->session->userdata('connect')) : ?>
-<!--                                <a class="dropdown-item" href='--><?//= site_url("users/profil/{$hash}"); ?><!--'>Profil</a>-->
-<!--                                <a class="dropdown-item" href="#">Mes contacts</a>-->
-<!--                                <a class="dropdown-item" href="#">Notifications</a>-->
-<!--                                <a class="dropdown-item" href="#">Paramètres</a>-->
-<!--                                <a class="dropdown-item alert alert-danger" href="--><?//= base_url(); ?><!--deconnexion">Déconnexion</a>-->
-<!--                            --><?php //endif; ?>
-<!--                        </div>-->
-<!--                    </li>-->
                 </ul>
             </li>
         </ul>
     </div>
 </nav>
+
 <!-- set message flash  -->
 <!-- message flash register success  -->
 <?php if($this->session->flashdata('Enregistrement réussis')) : ?>
@@ -107,8 +95,62 @@
     <div class="alert alert-warning text-center" role="alert">
         <strong><?= $this->session->flashdata('Déconnexion') ?></strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span class="close-cross" aria-hidden="true">&times;</span>
         </button>
     </div>
 <?php endif; ?>
 <!-- message flash Déconnexion  -->
+<script>
+
+	search_data();
+
+	function search_data(query){
+		var query = $("#search_people").val();
+		var html = '';
+		var error = '';
+
+		$.ajax({
+			url : '<?= base_url() ?>barre_search/index',
+			data: {query:query},
+			method: "POST",
+			dataType: "json",
+			success: function(data){
+				var i;
+				for(i = 0; i < data.length; i++){
+
+				html += "<div class='display-box-user'>"+
+							"<a href='profil?id="+data[i].id+"'>"+
+								"<img src='<?= base_url(); ?>assets/images/profil_pictures/" + data[i].profil_image + "' alt='photo-de-"+data[i].pseudo+"'  class='img-circle img-responsive' width='25'>"+
+								''+ data[i].nom + ' ' + data[i].prenom + '<br>'+
+								'<span>'+data[i].email+'</span>'+
+							"</a>"+
+						"</div>";
+			
+					}
+
+				$("#display_result").html(html);
+
+			}
+
+		});
+	}
+
+	$("#search_people").keyup(function(){
+
+		var query = $(this).val();
+
+		if( query.length > 0 ){
+
+			search_data(query);
+
+			$(".display_result").css("display", "block");
+		}
+		else{
+
+			search_data();
+
+			$(".display_result").css("display", "none");
+		}
+	});
+
+</script>

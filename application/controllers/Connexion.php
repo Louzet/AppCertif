@@ -12,12 +12,15 @@ class Connexion extends  CI_Controller
         $data['title'] = 'Connexion';
 
         /* validation form */
-		$this->form_validation->set_rules('pseudo', 'Pseudo', 'trim|required|alpha_dash|encode_php_tags|callback_pseudo_exists');
+		$this->form_validation->set_rules('pseudo', 'Pseudo', 'trim|required|encode_php_tags|callback_pseudo_exists');
 		
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|alpha_dash|encode_php_tags');
 		
 		// get pseudo
 		$pseudo = $this->input->post('pseudo');
+
+		$pseudo = ucfirst($pseudo);
+
 		
 		// get password encrypted
 		$password = sha1($this->input->post('password'));
@@ -36,7 +39,7 @@ class Connexion extends  CI_Controller
         {
 
 			// login user(id)
-			$user_id = $this->connexion_model->login($pseudo, $password);
+			$user_id = $this->connexion_model->login(ucfirst($pseudo), ucfirst($password));
 
             if($user_id)
             {
@@ -55,10 +58,25 @@ class Connexion extends  CI_Controller
                 $this->session->set_userdata($user_data);
 
                 // set message flashdata login success
-                $this->session->set_flashdata('Connexion réussie', 'Vous êtes maintenant connecté');
+				$this->session->set_flashdata('Connexion réussie', 'Vous êtes maintenant connecté');
+				
+				// get the user's data
+				// $data['user'] = $this->users_model->profil($id);
 
-                // redirect la page d'accueil
-                redirect('accueil');
+				// // hash for the uri
+				// $data['hash'] = sha1(md5($data['user'][0]['created_at'] . $data['user'][0]['pseudo']));
+	
+				// $hash['key'] = substr($data['hash'], 0, 6);
+	
+				// $pseudo = $this->session->userdata['pseudo'];
+	
+				// $hash = $pseudo.'-'.$hash['key'];
+
+				// redirect la page d'accueil
+
+				$id_session = $this->session->userdata('user_id');
+				
+                redirect("accueil?id=".$id_session);
             }
             else
             {

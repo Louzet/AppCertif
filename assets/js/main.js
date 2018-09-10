@@ -17,9 +17,6 @@ $(document).ready(function() {
     $(".file-upload").on('change', function(){
         readURL(this);
     });
-<<<<<<< HEAD
-=======
 
     $(".underline").animate();
->>>>>>> dev-correction
 });

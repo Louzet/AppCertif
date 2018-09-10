@@ -8,9 +8,9 @@ class connexion_model extends CI_Model
 	{
 		
 		// matches data
-		$this->db->where('pseudo', $pseudo);
+		$this->db->where('pseudo', ucfirst($pseudo));
 		
-		$this->db->where('password', $password);
+		$this->db->where('password', ucfirst($password));
 
 		$result = $this->db->get($this->table);
 
@@ -40,7 +40,7 @@ class connexion_model extends CI_Model
 		
 		foreach($pseudos_bdd as $pseudo_bdd) {
 			
-			if ($pseudo_bdd->pseudo == trim($pseudo)){
+			if (ucfirst($pseudo_bdd->pseudo) == trim(ucfirst($pseudo))){
 
 				return TRUE;
 

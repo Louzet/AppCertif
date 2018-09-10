@@ -7,12 +7,14 @@ class Inscription extends  CI_Controller
     {
         parent::__construct();
 
-
-
     }
 
+	public function index()
+	{
+		$this->load->inscription();
+	}
 
-    public function index()
+    public function inscription()
     {
         if ($this->session->userdata('user_id')) {
             redirect('accueil');

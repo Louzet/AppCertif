@@ -29,7 +29,7 @@ if (! function_exists('profil_image'))
                     $profil_image = humanize(preg_replace('/\s/','', $_FILES['userfile']['name']), '_');
                 }
                 $this->users_model->edit_profil_image($profil_image);
-                redirect('users/profil', auto);
+                redirect('profil_view', auto);
             }
         }
     }

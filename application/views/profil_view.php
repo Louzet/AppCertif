@@ -1,17 +1,16 @@
-<h2 class="text-center py-2">Profil <?= "de " . $this->session->userdata('pseudo'); ?> </h2>
-<?php
-?>
+<h2 class="text-center py-2">Profil de  <?= $user_by_id->pseudo; ?> </h2>
+
 <hr>
-<div class="container bootstrap snippet">
+<div class="container">
     <div class="row">
-        <div class="col-md-4 col-lg-3"><!--left col-->
+        <div class="col-md-4 col-lg-3 mb-5"><!--left col-->
             <div class="text-center">
                 <h4 class="lead"><?= ucfirst($this->session->userdata('pseudo')); ?></h4>
-                <img src="<?= base_url(); ?>assets/images/profil_pictures/<?php if(!empty($user[0]['profil_image'])){ echo $user[0]['profil_image']; } else{ echo "noimage.png";} ?>" class="avatar img-circle img-thumbnail" alt="avatar" width="128" height="64">
+                <img src="<?= base_url(); ?>assets/images/profil_pictures/<?php if(!empty($user[0]['profil_image'])){ echo $user_by_id->profil_image; } else{ echo "noimage.png";} ?>" class="avatar img-circle img-thumbnail" alt="avatar" width="128" height="64">
                 <h6>Change ta photo de profil </h6>
                 <?php echo form_open_multipart('users/profil_image'); ?>
                 <input type="file" class="text-center center-block file-upload" name="userfile">
-            </div></hr><br>
+            </div><hr><br>
             <button class="btn btn-md btn-success col-sm-4 offset-sm-4 col-md-8 offset-md-2 col-lg-6 offset-lg-3" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
             <?php form_close(); ?>
             <ul class="list-group mt-3">
@@ -34,21 +33,21 @@
             </div>
         </div><!--/col-3-->
         <div class="offset-md-1 col-md-7 offset-lg-1 col-lg-8">
-            <?php echo form_open_multipart('user/profil_update'); ?>
+		<?php echo form_open_multipart('user/profil_update'); ?>
             <div class="form-row">
                 <div class="col">
                     <label for="nom"><h4>Nom</h4> </label>
-                    <input type="text" class="form-control" disabled placeholder="Nom" name="nom" id="nom" value="<?php if(isset($user[0]['prenom'])){echo $user[0]['prenom'];} ?>">
+                    <input type="text" class="form-control" disabled placeholder="Nom" name="nom" id="nom" value="<?php if(isset($user_by_id->nom)){echo $user_by_id->nom;} ?>">
                 </div>
                 <div class="col">
                     <label for="nom"><h4>Prénom</h4></label>
-                    <input type="text" class="form-control" disabled placeholder="Prénom" name="prenom" id="prenom" value="<?php if(isset($user[0]['prenom'])){echo $user[0]['nom'];} ?>">
+                    <input type="text" class="form-control" disabled placeholder="Prénom" name="prenom" id="prenom" value="<?php if(isset($user_by_id->prenom)){echo $user_by_id->prenom;} ?>">
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-sm-12">
                     <label for="email"><h4>Email</h4></label>
-                    <input type="email" class="form-control" disabled name="email" id="email" placeholder="your@email.com" title="enter your email." value="<?php if(isset($user[0]['prenom'])){echo $user[0]['email'];} ?>">
+                    <input type="email" class="form-control" disabled name="email" id="email" placeholder="your@email.com" title="enter your email." value="<?php if(isset($user_by_id->email)){echo strtolower($user_by_id->email);} ?>">
                 </div>
             </div>
             <div class="form-row">
@@ -70,6 +69,8 @@
                     <button class="btn btn-md btn-danger col-lg-2 col-md-12 col-sm-6 my-2" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
                 </div>
             </div>
-            </form>
-        </div>
-        <hr>
+		</form>
+	</div>
+	<hr>
+	</div>
+</div>

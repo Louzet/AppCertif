@@ -1,25 +1,53 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-if (! function_exists('profil'))
+class Profil extends CI_Controller
 {
-    function profil($id = NULL, $hash = FALSE)
-    {
-        $data['user'] = $this->users_model->profil($id);
+	public function __construct(){
 
-        $data['title'] = "Profil de "  . $data['user'][0]['pseudo'];
-        $data['hash'] = sha1(md5($data['user'][0]['created_at'].$data['user'][0]['pseudo']));
-        $hash = $data['hash'];
-        foreach ($data['user'] as $user)
-        {
-            if($user['id'] === $this->session->userdata('user_id')){
-                $this->load->view('templates/_header', $data, $hash);
-                $this->load->view('users/profil', $data, $user);
-                $this->load->view('templates/_footer');
-            }
-            else{
-                show_404();
-            }
-        }
-    }
+		parent::__construct();
 
+	}
+
+	function index($id = NULL)
+	{
+		if(!empty($_GET['id'])){
+
+			$data['user_by_id'] = find_user_by_id($_GET['id']);
+
+			var_dump($data['user_by_id']);
+			
+			if(!$data['user_by_id']){
+				
+				redirect("connexion");
+			}
+
+		}
+		else{
+			$user_id = $this->session->userdata['user_id'];
+
+			redirect("profil?id=".$user_id);
+
+		}
+
+		$data['user'] = $this->users_model->profil($id);
+	
+		$data['title'] = "Profil de "  . $data['user'][0]['pseudo'];
+		$data['hash'] = sha1(md5($data['user'][0]['created_at'].$data['user'][0]['pseudo']));
+		$hash = $data['hash'];
+		foreach ($data['user'] as $user)
+		{
+			if($user['id'] === $this->session->userdata('user_id')){
+				$this->load->view('templates/_header', $data, $hash);
+				$this->load->view('templates/_nav');
+				$this->load->view('profil_view', $data, $user);
+				$this->load->view('templates/_footer', $data);
+			}
+			else{
+				show_404();
+			}
+		}
+	}
 }
+
+
+

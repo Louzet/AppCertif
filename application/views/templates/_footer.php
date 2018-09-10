@@ -1,18 +1,18 @@
 
-	<div class="container-fluid">
-		<footer id="footer" class="mt-5 my-5 text-center">
-      	<div class="container">
+	<div class="container-full">
+		<footer id="footer" class="mt-5 text-center">
+      	
       	<div class="row">
             <div class="col-lg-3 col-md-12 col-sm-6">
-				<h5 id="socials">Nos réseaux</h5>
-				<ul class="list-inline social-icons">
-					<li><a href="#"><ion-icon name="logo-facebook"></ion-icon>  facebook/thag-team</a></li>
-					<li><a href="#"><ion-icon name="logo-twitter"></ion-icon>  twitter/thag-team</a></li>
-					<li><a href="#"><ion-icon name="logo-linkedin"></ion-icon>  linkedin/thag-team</a></li>
-					<li><a href="#"><ion-icon name="logo-dribbble"></ion-icon>  dribbble/thag-team</a></li>
-					<li><a href="#"><ion-icon name="logo-googleplus"></ion-icon>  googleplus/thag-team</a></li>
-					
-				</ul>
+							<h5 id="socials">Nos réseaux</h5>
+							<ul class="list-inline social-icons">
+								<li><a href="#"><ion-icon name="logo-facebook"></ion-icon>  facebook/thag-team</a></li>
+								<li><a href="#"><ion-icon name="logo-twitter"></ion-icon>  twitter/thag-team</a></li>
+								<li><a href="#"><ion-icon name="logo-linkedin"></ion-icon>  linkedin/thag-team</a></li>
+								<li><a href="#"><ion-icon name="logo-dribbble"></ion-icon>  dribbble/thag-team</a></li>
+								<li><a href="#"><ion-icon name="logo-googleplus"></ion-icon>  googleplus/thag-team</a></li>
+								
+							</ul>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
               <h5 id="individuals">For individuals</h5>
@@ -42,12 +42,12 @@
                 <li><a href="#">Contact us</a></li>
                 <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Terms</a></li>
-				<li><a href="#">Help</a></li>
-				<li><a href="#">FAQ</a></li>
+								<li><a href="#">Help</a></li>
+								<li><a href="#">FAQ</a></li>
               </ul>
             </div>
       	</div>
-      </div>
+    
       <div class="copyright text-center mt-3">
         <p>copyright <strong>@thag-team</strong> <?= date('Y'); ?>. All rights reserved</p>
       </div>
@@ -55,19 +55,30 @@
 	</div>	
 		
 
-		<script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
-		<script src="<?= base_url(); ?>assets/js/popper.min.js"></script>
-		<script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
+		
+		<script src="<?= base_url(); ?>assets/js/utility_bootstrap/popper.min.js"></script>
+		<script src="<?= base_url(); ?>assets/js/utility_bootstrap/bootstrap.min.js"></script>
 		<script src="<?= base_url(); ?>assets/js/main.js"></script>
+
+		<?php if($title == 'Accueil') : ?>
+
+			<script src="<?= base_url(); ?>assets/js/accueil_page.js"></script>
+
+			<script src="<?= base_url(); ?>assets/js/ajax/create_post.js"></script>
+
+		<?php endif; ?>
 
 		<!-- ion icons -->
 		<script src="https://unpkg.com/ionicons@4.4.1/dist/ionicons.js"></script>
 
 		<!-- ** Emoji Lib ** -->
-		<script src="<?= base_url();?>assets/lib/jqueryemoji/js/jQueryEmoji.js"></script>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/lib/js/emojione.min.js">
+		<script src="<?= base_url();?>assets/lib/emojionearea/dist/emojionearea.js"></script>
+		<!-- ** visioneuse Lib ** -->
+
+		<script src="<?= base_url();?>assets/lib/smoothbox/js/smoothbox.js"></script>
+
+		<script src="<?= base_url();?>assets/js/ajax/amis_crud.js"></script>
 	
-
 </body>
 </html>
