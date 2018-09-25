@@ -54,11 +54,9 @@
 									
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">Action</button>
-                                <button class="dropdown-item" type="button">Another action</button>
-                                <button class="dropdown-item" type="button">Something else here</button>
+                                <a class="dropdown-item p-2" href="<?= site_url(); ?>paramètres"">Paramètres</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?= site_url(); ?>deconnexion">Déconnexion</a>
+                                <a class="dropdown-item p-2" href="<?= site_url(); ?>deconnexion">Déconnexion</a>
                             </div>
                         </div>
                     </li>
@@ -84,7 +82,8 @@
 <!-- message flash réussite de connexion  -->
 <?php if($this->session->flashdata('Connexion réussie')) : ?>
     <div class="alert alert-success text-center" role="alert">
-        <strong><?= $this->session->flashdata('Connexion réussie') ?></strong>
+	<span><?= 'Welcome Back ' . $this->session->userdata('pseudo') . ', </span>'; ?>
+        <strong><?= $this->session->flashdata('Connexion réussie'); ?></strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -99,7 +98,17 @@
         </button>
     </div>
 <?php endif; ?>
-<!-- message flash Déconnexion  -->
+
+<!-- message flash email modification du mot de passe  -->
+<?php if($this->session->flashdata('email envoyé')) : ?>
+    <div class="alert alert-success text-center" role="alert">
+        <strong><?= $this->session->flashdata('email envoyé') ?></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span class="close-cross" aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<?php endif; ?>
+
 <script>
 
 	search_data();

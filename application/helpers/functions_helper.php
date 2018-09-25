@@ -27,32 +27,44 @@ if(! function_exists ('find_user_by_id')){
 		{
 			echo $e->getMessage();
 		}
-
-		
-
-
-
-
-		// $this->db->select('nom, prenom, pseudo, email, created_at, profil_image');
-
-		// $this->db->from('users');
-
-		// $this->db->where("id", $id);
-
-		// $query = $this->db->get();
-
-		// if($query->nums_row() > 0){
-
-		// 	return $query->result_array();
-		// }
-		// else{
-		//  	return FALSE;
-		// }
 	}
-
-
-
-
-
-
 }
+
+// if(! function_exists ('find_user_by_email')){
+
+// 	function find_user_by_email()
+// 	{
+// 		$servername = "localhost";
+// 		$username = "root";
+// 		$password = "";
+// 		$dbname = "appcodeigniter";
+
+// 		try{
+// 			$db = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
+
+// 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// 			$query1 = $db->prepare("SELECT nom, prenom, pseudo, email, created_at, profil_image FROM users");
+		 
+// 			$query1->execute();
+
+// 			$data1 = $query1->fetch(PDO::FETCH_OBJ);
+
+// 			var_dump($data1);
+
+// 			return $data1;
+
+// 		}
+// 		catch(PDOException $e)
+// 		{
+// 			echo $e->getMessage();
+// 		}
+// 	}
+// }
+
+
+
+
+
+
+

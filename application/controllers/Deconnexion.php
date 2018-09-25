@@ -11,7 +11,11 @@ class Deconnexion extends CI_Controller
         else
         {
             // destruction de la session
-            $this->session->sess_destroy();
+			$this->session->sess_destroy();
+			
+            // destruction des cookies
+            setcookie('pseudo', '', time() - 3600);
+            setcookie('password', '', time() - 3600);
 
             // set message flash logout session
             $this->session->set_flashdata('Déconnexion', 'Vous êtes à présent déconnecté');

@@ -1,70 +1,56 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-10 offset-sm-1 text">
-            <h1 class="text-center">Bootstrap Register Forms</h1>
-            <div class="description py-2">
-                <p class="text-center">
-                    Free responsive template made with Bootstrap.
-                    Download it on <a href="http://azmind.com" target="_blank">AZMIND</a>,
-                    customize and use it as you like!
-                </p>
-            </div>
+        <div class="col-sm-10 offset-sm-1 text mt-2">
+
+            <h1 class="text-center">Créer un compte <?= WEBSITE_NAME; ?></h1>
+            
         </div>
-    </div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-6 offset-md-6">
 
-    <div class="row register-form">
+			<div class="register-form">
 
-        <div class="col-md-5 ">
-            <form role="form" action="" method="post" class="register-form pb-5 pt-1">
-                <div class="form-group">
+				<?= form_open('inscription', 'data-parsley-validate id="form-inscription"', ""); ?>
+					<div class="form-group">
+						<?= form_label("Nom d'utilisateur (pseudo)*", 'pseudo'); ?>
+						<input type="text" name="pseudo" placeholder="Nom d'utilisateur..." class="login-input form-control" id="login-pseudo" data-parsley-minlength="3" data-parsley-trigger="change" value="<?= set_value('pseudo', ''); ?>" autofocus required>
+						<?= form_error("pseudo", "<div class='text-danger errors'>", "</div>") ?>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="nom">Nom :</label>
+							<input type="text" class="form-control" id="nom" placeholder="nom" name="nom" value="<?= set_value('nom'); ?>" data-parsley-trigger="change" required>
+							<?= form_error("nom", "<div class='text-danger errors'>", "</div>") ?>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="prenom">Prénom :</label>
+							<input type="text" class="form-control" id="prenom" placeholder="Prénom" name="prenom" value="<?= set_value('prenom'); ?>" data-parsley-trigger="change" required>
+							<?= form_error("prenom", "<div class='text-danger errors'>", "</div>") ?>
+						</div>
+					</div>
+					<div class="form-group">
+						<?= form_label("Votre Email :", 'Email'); ?>
+							<input type="email" name="email" value="<?= set_value('email'); ?>" placeholder="xyz@email.com" class="form-control" id="login-password" data-parsley-trigger="change" autocomplete="autocomplete" required>
+							
+						<?= form_error("email", "<div class='text-danger errors'>", "</div>") ?>
+					</div>
+					
+					<div class="form-group">
+						<?= form_label("Mot de passe", 'password'); ?>
+							<input type="password" name="password" placeholder="Mot de passe..." class="login-input form-control" id="login-password" data-parsley-minlength="6" data-parsley-trigger="change" autocomplete="autocomplete" required>
+							
+						<?= form_error("password", "<div class='text-danger errors'>", "</div>") ?>
+					</div>
 
-                    <label for="register-nom"><strong class="blue">Nom</strong>*</label>
-                    <input type="text" name="nom" placeholder="Nom..." class="register-nom form-control " id="register-nom" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-prenom"><strong class="blue">Prénom</strong>*</label>
-                    <input type="text" name="prenom" placeholder="Prénom..." class="register-prenom form-control " id="register-prenom" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-pseudo"><strong class="blue">Nom d'utilisateur(Pseudo)</strong>*</label>
-                    <input type="text" name="pseudo" placeholder="Saisissez votre Pseudo..." class="register-pseudo form-control " id="register-pseudo" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-email"><strong class="blue">Email</strong>*</label>
-                    <input type="text" name="email" placeholder="Email..." class="register-email form-control " id="register-email" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-password" class="blue"><strong>Mot de passe</strong>*</label>
-                    <input type="password" name="password" placeholder="Mot de passe..." class="register-password form-control " id="register-password" required>
-                </div>
+					<button type="submit" class="btn btn-primary btn-block">Thag me !</button>
+				<?= form_close(); ?>
+			
+			</div>
 
-                <button type="submit" class="btn btn-block btn-success">Thag Me !</button>
-            </form>
-        </div>
-        <div class="col-sm-12 col-md-6 pb-5">
-            <div class="row">
-
-                <div class="col-sm-10 offset-sm-1 pb-3">
-                    <h3>Beautiful Forms</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-sm-10 offset-sm-1 py-3">
-                    <h3>Awesome Login</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-sm-10 offset-sm-1 py-3">
-                    <h3>Great Registration</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+		</div>
+	</div>
 </div>
 
 

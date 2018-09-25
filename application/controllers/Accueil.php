@@ -15,8 +15,6 @@ class Accueil extends CI_Controller
 		if(!empty($_GET['id'])){
 
 			$data['user_by_id'] = find_user_by_id($_GET['id']);
-
-			var_dump($data['user_by_id']);
 			
 			if(!$data['user_by_id']){
 				

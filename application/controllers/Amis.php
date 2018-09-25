@@ -18,8 +18,11 @@ class Amis extends CI_Controller
 		$data['title'] = 'Liste d\'amis';
 
 		$this->load->view('templates/_header', $data);
+
 		$this->load->view('templates/_nav', $data);
+
 		$this->load->view('crud_amis/liste_amis_view');
+
 		$this->load->view('templates/_footer', $data);
 	}
 

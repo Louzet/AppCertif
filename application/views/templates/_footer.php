@@ -1,84 +1,41 @@
 
-	<div class="container-full">
-		<footer id="footer" class="mt-5 text-center">
-      	
-      	<div class="row">
-            <div class="col-lg-3 col-md-12 col-sm-6">
-							<h5 id="socials">Nos réseaux</h5>
-							<ul class="list-inline social-icons">
-								<li><a href="#"><ion-icon name="logo-facebook"></ion-icon>  facebook/thag-team</a></li>
-								<li><a href="#"><ion-icon name="logo-twitter"></ion-icon>  twitter/thag-team</a></li>
-								<li><a href="#"><ion-icon name="logo-linkedin"></ion-icon>  linkedin/thag-team</a></li>
-								<li><a href="#"><ion-icon name="logo-dribbble"></ion-icon>  dribbble/thag-team</a></li>
-								<li><a href="#"><ion-icon name="logo-googleplus"></ion-icon>  googleplus/thag-team</a></li>
-								
-							</ul>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <h5 id="individuals">For individuals</h5>
-              <ul class="footer-links">
-                <li><a href="#">Inscription</a></li>
-                <li><a href="#">Connexion</a></li>
-                <li><a href="#">Découverte</a></li>
-                <li><a href="#">Nouveautés</a></li>
-                <li><a href="#">Paramètres de langues</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <h5 id="business">For businesses</h5>
-              <ul class="footer-links">
-                <li><a href="#">Business signup</a></li>
-                <li><a href="#">Business login</a></li>
-                <li><a href="#">Benefits</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">Advertise</a></li>
-                <li><a href="#">Setup</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <h5 id="about">About</h5>
-              <ul class="footer-links">
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms</a></li>
-								<li><a href="#">Help</a></li>
-								<li><a href="#">FAQ</a></li>
-              </ul>
-            </div>
-      	</div>
-    
-      <div class="copyright text-center mt-3">
-        <p>copyright <strong>@thag-team</strong> <?= date('Y'); ?>. All rights reserved</p>
-      </div>
-		</footer>
-	</div>	
+
 		
 
 		
-		<script src="<?= base_url(); ?>assets/js/utility_bootstrap/popper.min.js"></script>
-		<script src="<?= base_url(); ?>assets/js/utility_bootstrap/bootstrap.min.js"></script>
-		<script src="<?= base_url(); ?>assets/js/main.js"></script>
+    <script src="<?= base_url(); ?>assets/js/utility_bootstrap/popper.min.js"></script>
+    <script src="<?= base_url(); ?>assets/js/utility_bootstrap/bootstrap.min.js"></script>
+    <script src="<?= base_url(); ?>assets/js/main.js"></script>
 
-		<?php if($title == 'Accueil') : ?>
 
-			<script src="<?= base_url(); ?>assets/js/accueil_page.js"></script>
 
-			<script src="<?= base_url(); ?>assets/js/ajax/create_post.js"></script>
+    <script src="<?= base_url(); ?>assets/js/accueil_page.js"></script>
 
-		<?php endif; ?>
+    <script src="<?= base_url(); ?>assets/js/connexion_page.js"></script>
 
-		<!-- ion icons -->
-		<script src="https://unpkg.com/ionicons@4.4.1/dist/ionicons.js"></script>
+		<script src="<?= base_url(); ?>assets/js/ajax/create_post.js"></script>
+		
+    <script src="<?= base_url(); ?>assets/js/ajax/boite_reception.js"></script>
 
-		<!-- ** Emoji Lib ** -->
+    <!-- ion icons -->
+    <script src="https://unpkg.com/ionicons@4.4.1/dist/ionicons.js"></script>
 
-		<script src="<?= base_url();?>assets/lib/emojionearea/dist/emojionearea.js"></script>
-		<!-- ** visioneuse Lib ** -->
+    <!-- ** visioneuse Lib ** -->
+    <script src="<?= base_url(); ?>assets/lib/Magnific-Popup/dist/jquery.magnific-popup.js"></script>
 
-		<script src="<?= base_url();?>assets/lib/smoothbox/js/smoothbox.js"></script>
+  <!-- ** parsley valid form inline Lib ** -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.js"></script> -->
 
-		<script src="<?= base_url();?>assets/js/ajax/amis_crud.js"></script>
-	
+  <!-- ** parsley valid form inline Lib ** -->
+  <script src="<?= base_url(); ?>assets/js/parsley/parsley.js"></script>
+
+  <!-- ** parsley french language ** -->
+  <script src="<?= base_url();?>assets/js/parsley/fr.js"></script>
+
+  <script src="<?= base_url();?>assets/js/ajax/amis_crud.js"></script>
+
+
+
+
 </body>
 </html>

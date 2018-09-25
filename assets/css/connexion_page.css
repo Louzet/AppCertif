@@ -4,51 +4,57 @@
 	padding: 3rem 3.5rem;
 	margin: 0 2rem;
 	box-sizing: border-box;
-	
+	background: #fff;
 
 	border-radius: 10px;
-	box-shadow: 1px 1px 6px #AEF2E3, -1px 1px 6px #AEF2E3, -1px -1px 6px #AEF2E3, 1px -1px 6px #AEF2E3;
+	box-shadow: 1px 1px 6px #222222, -1px 1px 6px #222222, -1px -1px 6px #222222, 1px -1px 6px #222222;
 	
 }
 
 .box-form h3{
 	margin-top: -2rem;
-	color: #fff;
-	text-shadow: 5px 0px 5px rgba(34, 34, 34, 1);
+	color: #000;
+
 	text-decoration: underline;
 	padding-bottom: 0.3rem;
 }
 
 
+.check{
+	color: #000; !important;
+
+}
+
 label{
 	color: #fff;
-	text-shadow: 5px 0px 5px rgba(34, 34, 34, 1);
 }
+
 input[type=checkbox]{
 	width: 1rem;
 	height: 1rem;
 	cursor: pointer;
 }
 
-input[type=text], input[type=password]{
+
+.login-input{
 	outline: 0 !important;
 	background-color: transparent !important;
-	color: #fff !important;
-	text-shadow: 5px 0px 5px rgba(34, 34, 34, 1) !important;
+	color: #000 !important;
+
     border: none !important;
-	border-bottom: 1px solid #fff !important;
+	border-bottom: 1px solid #000 !important;
 	border-radius: 0;
+	position: relative;
 }
 
-input[type=text]:focus, input[type=password]:focus{
+.login-input:focus{
 	outline: 0 !important;
 	box-shadow: none;
 	
 }
 
-input[type=text]:active, input[type=password]:active{
+.login-input:active{
 	outline: 0 !important;
-	
 }
 
 .box-get-started{
@@ -57,7 +63,6 @@ input[type=text]:active, input[type=password]:active{
 	background-position: center;
 	position: relative;
 	margin-top: 1%;
-	
 }
 
 .site-name{
@@ -73,5 +78,33 @@ input[type=text]:active, input[type=password]:active{
 }
 
 .text-shadow-white{
-	text-shadow: 2px 1px 6px #fff, -2px 1px 6px #fff, -2px -1px 6px #fff, 2px -1px 6px #fff;
+	text-shadow: 2px 1px 6px #222, -2px 1px 6px #222, -2px -1px 6px #222, 2px -1px 6px #222;
 }
+#eye-off{
+	position: absolute;
+	right: 0;
+	top: 41%;
+	padding-right: 4.5rem;
+	margin: 3px;
+	color: #000;
+	text-shadow: 2px 1px 6px #eee, -2px 1px 6px #eee, -2px -1px 6px #eee, 2px -1px 6px #eee;
+	font-size: 1.55rem;
+	cursor: pointer;
+	transition: all 1s linear;
+}
+
+.modal-backdrop.show{
+	position: relative;
+}
+span.icon-help{
+	border: 1px solid #000;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	padding: .2rem;
+}
+
+a.link-mp{
+
+}
+

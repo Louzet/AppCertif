@@ -15,7 +15,7 @@
 				<!-- cadre de profil -->
 				<div class="profile-card">
 					<img src="<?= base_url(); ?>assets/images/profil_pictures/<?php if(!empty($user[0]['profil_image'])){ echo $user[0]['profil_image']; } else{ echo "noimage.png";} ?>" alt="user" class="profile-photo">
-					<h5><a href="<?=site_url(); ?>profil?<?= $user[0]['id']; ?>" class="text-white"><?= $user[0]['nom']; ?> <?= $user[0]['prenom']; ?></a></h5>
+					<h5><a href="<?=site_url(); ?>profil?<?= $user[0]['id']; ?>" class="text-white"> <?= $user[0]['pseudo']; ?></a></h5>
 					<a href="#" class="text-white"><ion-icon name="person-add"></ion-icon> 1,299 000 followers</a>
 				</div>
 				<!-- aside menu -->
@@ -23,9 +23,9 @@
 				  <li><ion-icon name="home" id="ion-home"></ion-icon><a href="newsfeed.html">Mes actus</a></li>
 				  <li><ion-icon name="contact" id="ion-profil"></ion-icon><a href="<?= site_url(); ?>profil?id=<?= $this->session->userdata['user_id']; ?>">Profil </a></li>
 				  <li><ion-icon name="contacts" id="ion-amis"></ion-icon><a href="<?= site_url("amis"); ?>">Amis</a></li>
-				  <li><ion-icon name="chatboxes" id="ion-message"></ion-icon><a href="newsfeed-messages.html">Messages</a></li>
-				  <li><ion-icon name="aperture" id="ion-images"></ion-icon><a href="newsfeed-images.html">Images</a></li>
-				  <li><ion-icon name="film" id="ion-videos"></ion-icon><a href="newsfeed-videos.html">Vidéos</a></li>
+				  <li><ion-icon name="chatboxes" id="ion-message"></ion-icon><a href="<?= base_url('newsfeed_messages'); ?>">Messages</a></li>
+				  <li><ion-icon name="aperture" id="ion-images"></ion-icon><a href="newsfeed-images">Images</a></li>
+				  <li><ion-icon name="film" id="ion-videos"></ion-icon><a href="newsfeed-videos">Vidéos</a></li>
 				</ul>
 			</div>
 
@@ -86,10 +86,14 @@
 						</div>
 					</div>
 
-					<?php  if($post['img_posts'] !== '' || $post['img_posts'] !== NULL || $post['img_posts'] !== '0' ) : ?>
+					<?php  if(($post['img_posts'] !== '') && ($post['img_posts'] !== NULL) && ($post['img_posts'] !== '0' )) : ?>
 						<div class="sb">
-							<img src="<?= site_url('assets/images/posts_images/'.$post['img_posts']);?>" alt="post-image" class="img-fluid post-image mt-3" name="userfile">
+                            <a href="<?= site_url('assets/images/posts_images/'.$post['img_posts']);?>" class="popup-link">
+                                <img src="<?= site_url('assets/images/posts_images/'.$post['img_posts']);?>" alt="post-image" class="img-fluid post-image mt-3" name="userfile" style="width:1343px;height: 755.023px;margin-top: 0px;margin-bottom: 0px;">
+                            </a>
+
 						</div>
+
 					<?php endif; ?>
 
 					<div class="row">
@@ -225,3 +229,9 @@
 		</div>
 	</div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('.popup-link').magnificPopup({type:'image'});
+    });
+</script>

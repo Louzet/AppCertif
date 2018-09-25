@@ -1,6 +1,6 @@
 <div class="container">
 
-	<h3 class="mt-3">La liste de mes amis </h2>
+	<h3 class="mt-3">La liste de mes amis </h3>
 
 	<div class="row">
 		<!-- <div class="col-md-8">
@@ -175,9 +175,7 @@ $(function(){
 			},
 			error: function(){
 
-				error = '<div>'+
-								'<p class="text-center alert alert-danger">Aucun résultat trouvé...</p>'+
-							'</div>';
+				error = '<div>'+'<p class="text-center alert alert-danger">Aucun résultat trouvé...</p>'+'</div>';
 
 				$("#msg-error-search-amis").html(error);
 				$("#show_amis").html('');
