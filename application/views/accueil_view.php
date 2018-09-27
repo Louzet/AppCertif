@@ -24,8 +24,8 @@
 				  <li><ion-icon name="contact" id="ion-profil"></ion-icon><a href="<?= site_url(); ?>profil?id=<?= $this->session->userdata['user_id']; ?>">Profil </a></li>
 				  <li><ion-icon name="contacts" id="ion-amis"></ion-icon><a href="<?= site_url("amis"); ?>">Amis</a></li>
 				  <li><ion-icon name="chatboxes" id="ion-message"></ion-icon><a href="<?= base_url('newsfeed_messages'); ?>">Messages</a></li>
-				  <li><ion-icon name="aperture" id="ion-images"></ion-icon><a href="newsfeed-images">Images</a></li>
-				  <li><ion-icon name="film" id="ion-videos"></ion-icon><a href="newsfeed-videos">Vidéos</a></li>
+				  <li><ion-icon name="book" id="ion-images"></ion-icon><a href="<?= base_url('arts'); ?>">Arts</a></li>
+				  
 				</ul>
 			</div>
 
