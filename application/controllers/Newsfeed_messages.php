@@ -60,7 +60,15 @@ class Newsfeed_messages extends CI_Controller{
 
 	public function get_users()
 	{
-		$data = $this->messages_model->all_users_model();
+		$datas = $this->messages_model->all_users_model();
+		echo json_encode($datas);
+	}
+
+	public function get_user($pseudo = NULL)
+	{
+		$pseudo = $this->input->get('pseudo');
+		
+		$data = $this->messages_model->get_user_model($pseudo);
 		echo json_encode($data);
 	}
 	

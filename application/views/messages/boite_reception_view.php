@@ -1,7 +1,65 @@
 
+<script>
 
+	load_dest();
+	function load_dest(query)
+	{
+		var dest = $("#data_destinataire");
+		var block_dest = $(".li_dest");
+		var base_url = "<?= base_url(); ?>";
+
+		var lists = $(".list-group-item");
+		var a = $(lists).find('a');
+		$(a).on('click', function(ev){
+			ev.preventDefault();
+		});
+		
+		$.ajax({
+			type: 'GET',
+			cache: 'false',
+			url : '<?= base_url(); ?>Newsfeed_messages/get_users',
+			data: {query:query},
+			dataType: 'json',
+			success: function(data){
+				var html01 = '';
+				var i;
+				for(i = 0; i < data.length; i++){
+
+					html01 += '<li class="list-group-item mb-1 li_dest">'+
+									'<a href="#" style="display:block;">'+
+										'<div class="media">'+
+											'<div class="media-left">'+
+												'<img src="http://localhost/AppCertif/assets/images/profil_pictures/' + data[i].profil_image + '" width="50" class="media-object">'+
+											'</div>'+
+											'<div class="media-body">'+
+												'<span class="user">' + data[i].pseudo + '</span>'+
+											'</div>'+
+										'</div>'+
+									'</a>'+
+								'</li>';
+				}
+				
+
+				var ul = $("ul.list-group");
+				
+				ul.append(html01);
+
+				
+			},
+			error: function(){
+				console.log('error');
+			}
+			
+		});
+
+		
+
+
+	}
+
+</script>
 <div class="container my-3" id="container">
-
+	
     <div class="row">
 		
 		<!-- left side -->
@@ -19,22 +77,7 @@
 			<hr>
 			<div class="panel panel-default" tabindex="2" style="outline: none;">
 				<ul class="list-group" style="overflow-y: scroll;">
-					<?php foreach($all_users as $one_user) : ?> <!-- foreach -->
-
-						<!-- <li class="list-group-item active mb-1 li_dest">
-							<a href="#">
-								<div class="media">
-									<div class="media-left">
-										<img src="<?= base_url();?>assets/images/profil_pictures/<?= (isset($one_user->profil_image)) ? $one_user->profil_image : "noimage.png"; ?>" width="50" class="media-object">
-									</div>
-									<div class="media-body">
-										<span class="user"><?= $one_user->pseudo; ?></span>
-									</div>
-								</div>
-							</a>
-						</li> -->
-
-					<?php endforeach; ?> <!-- endforeach -->
+					
 				</ul>
 			</div>
 		</div>
@@ -134,72 +177,33 @@
 		</div>
 
 		<!-- right side -->
-		<div class="col-md-3" id="_destinataire">
+		<div class="col-md-3">
 
 			<div class="row">
-				<div id="data_destinataire" data-scrollable="" tabindex="0" style="overflow-y: hidden; outline: none;text-align: center;margin:0 auto;">
-					<div class="sidebar-block my-3">
-						<div class="profile">
-						<img src="<?= base_url();?>assets/images/profil_pictures/<?= (isset($user[0]['profil_image'])) ? $user[0]['profil_image'] : 'noimage.png'; ?>" width="50" class="media-object img-circle media-photo-profil my-2">
-							<h4><?= $user[0]['prenom'] . ' ' . $user[0]['nom'] ;?></h4>
-							<h6><?= $user[0]['pseudo']; ?></h6>
-						</div>
+				<div id="_destinataire" style="width:100%;height:100%;">
+					<div id="data_destinataire" data-scrollable="" tabindex="0" style="overflow-y: hidden; outline: none;text-align: center;margin:0 auto;">
+						<div class="sidebar-block my-3">
+							<div class="profile">
+							<img src="<?= base_url();?>assets/images/profil_pictures/noimage.png" width="50" class="media-object img-circle media-photo-profil my-2">
+								<h4></h4>
+								<h6></h6>
+							</div>
 					</div>
-				<div class="category">About</div>
-				<div class="sidebar-block">
-					<ul class="list-about">
-						<li><ion-icon name="locate"></ion-icon> Amsterdam, NL</li>
-						<li><ion-icon name="link"></ion-icon> <a href="#">www.mosaicpro.biz</a></li>
-						<li><ion-icon name="logo-twitter"></ion-icon><a href="#">/mosaicprobiz</a></li>
-					</ul>
-				</div>
-				<div class="category">Photos</div>
+					<div class="category">About</div>
 					<div class="sidebar-block">
-						<div class="sidebar-photos">
-						<!-- <ul>
-							<li>
-								<a href="#">
-									<img src="images/place1.jpg" alt="people">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="images/place2.jpg" alt="people">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="images/place3.jpg" alt="people">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="images/food1.jpg" alt="people">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="images/food1.jpg" alt="people">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="images/place3.jpg" alt="people">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="images/place2.jpg" alt="people">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="images/place1.jpg" alt="people">
-								</a>
-							</li>
-						</ul> -->
-						<a href="#" class="btn btn-primary btn-xs">view all</a>
+						<ul class="list-about">
+							<li><ion-icon name="locate"></ion-icon></li>
+							<li><ion-icon name="link"></ion-icon> <a href="#"></a></li>
+							<li><ion-icon name="logo-twitter"></ion-icon><a href="#"></a></li>
+						</ul>
 					</div>
+					
+					<div class="sidebar-block">
+						<div class="sidebar-profil-link">
+						
+						<a href="#" class="btn btn-primary btn-xs">Voir le profil</a>
+					</div>
+					
 				</div>
 			</div>
 			
@@ -211,15 +215,50 @@
 <script>
 	$(document).ready(function(){
 
-		
+		click_user();
+		function click_user(pseudo)
+		{
+
+			let lists = $('.list-group-item');
+			
+			var pseudo;
+			var a = $(lists).find('a');
+		$(a).on('click', function(ev){
+			ev.preventDefault();
+		});
+			$(lists).each(function(e){
+				e.preventDefault();
+				$(this, document).on('click', function(event){
+					
+					event.preventDefault();
+					
+					
+					pseudo = $(this).find('.user').text();
+					
+					$.get({
+						type:'GET',
+						url: "<?= base_url(); ?>Newsfeed_messages/get_user",
+						cache: 'false',
+						data: {'pseudo' : pseudo},
+						dataType: 'json',
+						success: function(response){
+							let html02;
+							let i;
+							let _pseudo = $('h6');
 	
-		
-
+							console.log(response);
 	
-
-		
-
-
+								
+							
+							
+						},
+						error: function(){
+							console.log("error");
+						}
+					});
+				});
+			});
+		}
 
 	});
 
