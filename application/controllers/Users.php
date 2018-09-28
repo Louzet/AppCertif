@@ -203,7 +203,7 @@ class Users extends CI_Controller
             if($this->form_validation->run() === FALSE){
 
                 $this->load->view('templates/_header', $data);
-                $this->load->view('users/profil', $data);
+                $this->load->view('profil_view', $data);
                 $this->load->view('templates/_footer');
             }
             else{
@@ -224,11 +224,11 @@ class Users extends CI_Controller
                 else{
                     $data = array('upload_data' => $this->upload->data());
                     $profil_image = humanize(preg_replace('/\s/','', $_FILES['userfile']['name']), '_');
+                    $this->users_model->edit_profil_image($profil_image);
+    
+                    redirect('users/profil', auto);
                 }
 
-                $this->users_model->edit_profil_image($profil_image);
-
-                redirect('users/profil', auto);
 
             }
         }
