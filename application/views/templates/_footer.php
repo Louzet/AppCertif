@@ -17,22 +17,30 @@
 		
     <script src="<?= base_url(); ?>assets/js/ajax/boite_reception.js"></script>
 
+    <script src="<?= base_url(); ?>assets/js/ajax/create_arts.js"></script>
+
     <!-- ion icons -->
     <script src="https://unpkg.com/ionicons@4.4.1/dist/ionicons.js"></script>
 
     <!-- ** visioneuse Lib ** -->
     <script src="<?= base_url(); ?>assets/lib/Magnific-Popup/dist/jquery.magnific-popup.js"></script>
+    <!-- ** visioneuse Lib ** -->
+    <script src="<?= base_url(); ?>assets/js/ckeditor/codemirror.min.js"></script>
+    <script src="<?= base_url(); ?>assets/js/ckeditor/froala_editor.pkgd.min.js"></script>
+    <script src="<?= base_url(); ?>assets/js/ckeditor/xml.min.js"></script>
 
-  <!-- ** parsley valid form inline Lib ** -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.js"></script> -->
+		<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 
-  <!-- ** parsley valid form inline Lib ** -->
-  <script src="<?= base_url(); ?>assets/js/parsley/parsley.js"></script>
+		
 
-  <!-- ** parsley french language ** -->
-  <script src="<?= base_url();?>assets/js/parsley/fr.js"></script>
 
-  <script src="<?= base_url();?>assets/js/ajax/amis_crud.js"></script>
+		<!-- ** parsley valid form inline Lib ** -->
+		<script src="<?= base_url(); ?>assets/js/parsley/parsley.js"></script>
+
+		<!-- ** parsley french language ** -->
+		<script src="<?= base_url();?>assets/js/parsley/fr.js"></script>
+
+		<script src="<?= base_url();?>assets/js/ajax/amis_crud.js"></script>
 
 
 

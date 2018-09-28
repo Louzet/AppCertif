@@ -24,8 +24,6 @@ class Connexion extends  CI_Controller
 		
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|alpha_dash|encode_php_tags');
 
-		
-
         if($this->form_validation->run() == false)
         {
 
@@ -45,7 +43,7 @@ class Connexion extends  CI_Controller
 			 */
 
 			// get pseudo
-			$pseudo = $this->input->post('pseudo');
+			$pseudo = strtolower($this->input->post('pseudo'));
 
 			// get password encrypted
 			$password = $this->input->post('password');

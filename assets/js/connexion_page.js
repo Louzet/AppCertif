@@ -6,13 +6,12 @@ $(document).ready(function(){
     $("#eye-off").mousedown("click", function(){
         $("#login-password").attr("type", "text");
 
-
-
     });
     $("#eye-off").mouseup("click", function(){
         $("#login-password").attr("type", "password");
 
-    });
+	});
+	
 
     function mot_de_passe_perdu()
     {

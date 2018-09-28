@@ -27,9 +27,9 @@ if (! function_exists('profil_image'))
                 else{
                     $data = array('upload_data' => $this->upload->data());
                     $profil_image = humanize(preg_replace('/\s/','', $_FILES['userfile']['name']), '_');
+                    $this->users_model->edit_profil_image($profil_image);
+                    redirect('profil_view', auto);
                 }
-                $this->users_model->edit_profil_image($profil_image);
-                redirect('profil_view', auto);
             }
         }
     }

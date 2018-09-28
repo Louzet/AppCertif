@@ -39,11 +39,9 @@
 								'</li>';
 				}
 				
-
 				var ul = $("ul.list-group");
 				
 				ul.append(html01);
-
 				
 			},
 			error: function(){
@@ -51,9 +49,6 @@
 			}
 			
 		});
-
-		
-
 
 	}
 
@@ -218,20 +213,20 @@
 		click_user();
 		function click_user(pseudo)
 		{
-
 			let lists = $('.list-group-item');
 			
 			var pseudo;
 			var a = $(lists).find('a');
-		$(a).on('click', function(ev){
-			ev.preventDefault();
-		});
+
+			$(a).on('click', function(ev){
+				ev.preventDefault();
+			});
+			
 			$(lists).each(function(e){
 				e.preventDefault();
 				$(this, document).on('click', function(event){
 					
 					event.preventDefault();
-					
 					
 					pseudo = $(this).find('.user').text();
 					
