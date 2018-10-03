@@ -27,8 +27,8 @@ class Users_model extends CI_Model
         // $where = $this->db->where('id', $id);
         // $query = $this->db->get_where($this->table, $where);
         // return $query->result_array();
-        $id_sess = $this->session->userdata('user_id');
-        $id = $id_sess;
+        $id = $this->session->userdata('user_id');
+
         $where = array('id' => $id);
         return $query = $this->db->select("*")
             ->from($this->table)
@@ -52,6 +52,25 @@ class Users_model extends CI_Model
         return $query = $this->db->set($data)
             ->where($where)
             ->update($this->table);
+    }
+
+    public function load_data_profil($id)
+    {
+        $this->db->where('id', $id);
+
+        $query = $this->db->get($this->table);
+
+        if($this->db->affected_rows() > 0){
+
+            return $query->result();
+
+        }
+        else{
+
+            return FALSE;
+
+        }
+
     }
 
 

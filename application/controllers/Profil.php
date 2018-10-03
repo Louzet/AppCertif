@@ -12,6 +12,10 @@ class Profil extends CI_Controller
 	{
         if(!empty($_GET['id'])){
 
+            /**
+             * Load function helper, pour retrouver l'utilisateur grâce à son id
+             */
+
             $data['user_by_id'] = find_user_by_id($_GET['id']);
 
             if(!$data['user_by_id']){
@@ -49,6 +53,13 @@ class Profil extends CI_Controller
 			}
 		}
 	}
+
+	public function load_data_profil($id)
+    {
+        $id = $this->input->get('id');
+
+        $data = $this->users_model->load_data_profil($id);
+    }
 }
 
 

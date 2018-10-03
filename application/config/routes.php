@@ -11,7 +11,7 @@ $route['default_controller'] = 'connexion';
 	cette méthode me permettra de raccourcir mes URL'S
 	blog représente mon controller
 	view représente ma méthode qui se chargera de généré toutes les pages
-	$1 est la variable qui renvoie toutes les vues vers 'index.php' grace au fichier '.htaccess
+	$1 est la variable qui renvoie toutes les vues vers 'parametres_view.php' grace au fichier '.htaccess
 */
 
 

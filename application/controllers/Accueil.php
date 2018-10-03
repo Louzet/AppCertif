@@ -12,32 +12,35 @@ class Accueil extends CI_Controller
 	
     function index($id = FALSE, $hash = FALSE)
     {
-		if(!empty($_GET['id'])){
+        if(!empty($_GET['id'])){
 
-			$data['user_by_id'] = find_user_by_id($_GET['id']);
-			
-			if(!$data['user_by_id']){
-				
-				redirect("connexion");
-			}
+            /**
+             * Load function helper, pour retrouver l'utilisateur grâce à son id
+             */
 
-		}
-		else{
-			$user_id = $this->session->userdata['user_id'];
+            $data['user_by_id'] = find_user_by_id($_GET['id']);
 
-			redirect("accueil?id=".$user_id);
+            if(!$data['user_by_id']){
 
-		}
+                redirect("connexion");
+            }
+
+        }
+        else{
+
+            $user_id = $this->session->userdata('user_id');
+
+            redirect("accueil?id=".$user_id);
+
+        }
 		
         if ($this->session->userdata('connect') == NULL) {
             redirect('connexion');
         } else {
-			
 
 			// $data['title'] = ucfirst($page);
 			$data['title'] = 'Accueil';
 			
-
             // get the user's data
             $data['user'] = $this->users_model->profil($id);
 			

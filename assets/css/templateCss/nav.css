@@ -62,3 +62,11 @@
 .m-perso{
 	margin-top: 20px !important;
 }
+a.option-nav:hover{
+    background:lightblue;
+    color:white;
+}
+a.option-deconnexion-nav:hover{
+	background:darkred !important;
+	color:white !important;
+}
