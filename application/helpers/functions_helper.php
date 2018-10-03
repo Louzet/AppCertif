@@ -14,7 +14,7 @@ if(! function_exists ('find_user_by_id')){
 
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-			$query = $db->prepare("SELECT id, nom, prenom, pseudo, email, created_at, profil_image FROM users WHERE id = ?");
+			$query = $db->prepare("SELECT id, nom, prenom, metier, pseudo, email, created_at, profil_image FROM users WHERE id = ?");
 		 
 			$query->execute([$id]);
 

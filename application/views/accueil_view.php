@@ -14,8 +14,8 @@
 			<div class="col-lg-3 text-center block" id="divers">
 				<!-- cadre de profil -->
 				<div class="profile-card">
-					<img src="<?= base_url(); ?>assets/images/profil_pictures/<?php if(!empty($user[0]['profil_image'])){ echo $user[0]['profil_image']; } else{ echo "noimage.png";} ?>" alt="user" class="profile-photo">
-					<h5><a href="<?=site_url(); ?>profil?<?= $user[0]['id']; ?>" class="text-white"> <?= $user[0]['pseudo']; ?></a></h5>
+					<img src="<?= base_url(); ?>assets/images/profil_pictures/<?= ($user_by_id->profil_image) ? $user_by_id->profil_image : "noimage.png"; ?>" alt="user" class="profile-photo">
+					<h5><a href="<?=site_url(); ?>profil?<?= $user[0]['id']; ?>" class="text-white"> <?= $user_by_id->pseudo; ?></a></h5>
 					<a href="#" class="text-white"><ion-icon name="person-add"></ion-icon> 1,299 000 followers</a>
 				</div>
 				<!-- aside menu -->
@@ -24,7 +24,7 @@
 				  <li><ion-icon name="contact" id="ion-profil"></ion-icon><a href="<?= site_url(); ?>profil?id=<?= $this->session->userdata['user_id']; ?>">Profil </a></li>
 				  <li><ion-icon name="contacts" id="ion-amis"></ion-icon><a href="<?= site_url("amis"); ?>">Amis</a></li>
 				  <li><ion-icon name="chatboxes" id="ion-message"></ion-icon><a href="<?= base_url('newsfeed_messages'); ?>">Messages</a></li>
-				  <li><ion-icon name="book" id="ion-images"></ion-icon><a href="<?= base_url('arts'); ?>">Arts</a></li>
+				  <li><ion-icon name="book" id="ion-images"></ion-icon><a href="<?= base_url(); ?>arts?id=<?= $user_by_id->id; ?>">Arts</a></li>
 				  
 				</ul>
 			</div>
@@ -66,7 +66,7 @@
 							<div class="col-md-12">
 								<span class="text-left float-left">
 									<div class="profile-photo-md"style="display:inline;">
-										<img src="<?= site_url('/assets/images/profil_pictures/'.$post['photo_profil_users']);?>" alt="user" class="" width="40"height="40"  style="width:100%;">
+										<img src="<?= site_url('/assets/images/profil_pictures/'.$user_by_id->profil_image); ?>" alt="user" class="" width="40"height="40"  style="width:100%;">
 									</div>
 									<span><a href="timeline.html" class="profile-link"><?=$post['pseudo_users']; ?></a><span class="following my-1 mx-3 text-center"><a href="<?= base_url(); ?>amis/ajouter_amis" id="add_friends">following</a></span></span>
 								</span>

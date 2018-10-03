@@ -11,7 +11,7 @@ $(document).ready(function() {
     
             reader.readAsDataURL(input.files[0]);
         }
-    }
+    };
     
 
     $(".file-upload").on('change', function(){
