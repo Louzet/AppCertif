@@ -3,34 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Users extends CI_Controller
 {
-    /* public function set_cookie_remember()
-    {
-        if($this->input->post('remember') === on)
-        {
-            $cookie = array(
-                'name' => 'remember_me',
-                'value' => $this->input->post('pseudo'),
-                'expire' => 60,
-                'secure' => TRUE,
-                'path' => '/',
-                'prefix' =>'Thag_'
-            );
-        $this->input->set_cookie($cookie);
-
-
-            $this->output->enable_profiler(true);
-
-
-        }
-    }
-
-    public function get_cookie_remember($cookie)
-    {
-        return $cookie = get_cookie('remember_me');
-        $prefix = 'Thag_';
-        return $this->input->cookie($prefix.$name, TRUE);
-    }
-    */
 
     function __construct()
     {
@@ -159,12 +131,7 @@ class Users extends CI_Controller
 
 	public function profil($id = NULL, $hash = FALSE)
     {
-        /*
-        var_dump($resultats = $this->users_model->profil($id));
-        var_dump($id_session = $this->session->userdata('user_id'));
 
-        var_dump($resultats);
-        */
         var_dump($data['user'] = $this->users_model->profil($id));
 
         $data['title'] = "Profil de "  . $data['user'][0]['pseudo'];
@@ -224,8 +191,10 @@ class Users extends CI_Controller
                 else{
                     $data = array('upload_data' => $this->upload->data());
                     $profil_image = humanize(preg_replace('/\s/','', $_FILES['userfile']['name']), '_');
-                    $this->users_model->edit_profil_image($profil_image);
-    
+                    $data = $this->users_model->edit_profil_image($profil_image);
+
+                    echo_json_encode($data);
+
                     redirect('users/profil', auto);
                 }
 

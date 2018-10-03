@@ -54,9 +54,9 @@
 									
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item p-2" href="<?= site_url(); ?>paramètres">Paramètres</a>
+                                <a class="dropdown-item p-2 option-nav" href="<?= site_url(); ?>parametres">Parametres</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item p-2" href="<?= site_url(); ?>deconnexion">Déconnexion</a>
+                                <a class="dropdown-item p-2 option-deconnexion-nav" href="<?= site_url(); ?>deconnexion">Déconnexion</a>
                             </div>
                         </div>
                     </li>

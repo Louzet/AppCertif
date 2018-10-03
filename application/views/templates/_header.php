@@ -18,10 +18,18 @@
 
 	<!-- load material design bootstrap -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/mdb/css/bootstrap.min.css">
+
 	<!-- load custom style material design bootstrap -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/mdb/css/style.min.css">
 
-	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+	<!-- font awesomes -->
+    <!--<link rel="stylesheet" href="<?/*= base_url(); */?>assets/css/utilitary/fontawesome-all.min.css">-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
  
 	<!-- Include Editor style css -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
@@ -29,23 +37,29 @@
 
 	<!-- Include CKEditor JS files. -->
     <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/decoupled-document/ckeditor.js"></script>
-	
 
+	<!-- Include CKEditor CSS files. -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/ckeditor/codemirror.min.css">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/ckeditor/font-awesome.min.css">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/ckeditor/froala_editor.pkgd.min.css">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/ckeditor/froala_style.min.css">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/ckeditor/stylethag.css">
+
+	<!-- Include booklet library link -->
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/booklet-master/src/jquery.booklet.latest.css">
 	
+	<!-- Include booklet library script -->
+    <script type="text/javascript" src="<?= base_url(); ?>assets/booklet-master/src/jquery-ui-1.10.4.min.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/booklet-master/src/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/booklet-master/src/jquery.booklet.latest.min.js"></script>
 
+	<!-- Include initialise booklet library script -->
+	<script type="text/javascript" src="<?= base_url(); ?>assets/js/booklet_arts.js"></script>
 
+	<!-- Template css -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/templateCss/all.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/templateCss/nav.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/templateCss/footer.css">
-
-    <!-- font awesomes -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/utilitary/fontawesome-all.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <!-- visionneuse lib css magnific popup-->
     <link href="<?= base_url();?>assets/lib/Magnific-Popup/dist/magnific-popup.css" rel="stylesheet">
@@ -77,8 +91,8 @@
 		
     <?php endif; ?>
 
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="<?= base_url(); ?>assets/css/show_arts.css">
+
 
 </head>
 <body>
