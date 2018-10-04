@@ -73,8 +73,7 @@
 								<!-- Split dropleft button -->
 								<div class="float-right dropleft">
 									
-									<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><ion-icon name="menu" id="ion-ellipsis"></ion-icon>
-									</a>
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><ion-icon name="menu" id="ion-ellipsis"></ion-icon></a>
 									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 										<a class="dropdown-item" href="#"><ion-icon name="save"></ion-icon> Enregistrer</a>
 										<a class="dropdown-item" href="#"><ion-icon name="close-circle"></ion-icon> Masquer</a>

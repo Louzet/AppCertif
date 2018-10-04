@@ -21,4 +21,48 @@ $(document).ready(function(){
             }
         });
     })*/
+
+    /**
+     * init function
+     */
+    update_profil();
+
+    function update_profil()
+    {
+        var nom = $('#nom').val();
+
+        var prenom = $('#prenom').val();
+
+        var pseudo = $('#pseudo').val();
+
+        var email = $('#email').val();
+
+        var metier = $('#metier').val();
+
+        /**
+         * event listener
+         */
+
+        $('#btn-update-profil').on('click', function(e){
+
+            e.preventDefault();
+
+            console.log(nom, prenom, pseudo, email, metier);
+
+            $.ajax({
+                url: 'http://localhost/AppCertif/parametres/update_profil_config',
+                type: 'POST',
+                data:{'nom':nom, 'prenom':prenom, 'pseudo':pseudo, 'email':email, 'metier':metier},
+                dataType:'json',
+                success:function(data){
+                    console.log('profil mis à jour');
+                },
+                error:function(){
+                    console.log('erreur :( ');
+                }
+            });
+        });
+
+
+    }
 });

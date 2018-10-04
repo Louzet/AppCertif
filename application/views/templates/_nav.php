@@ -9,62 +9,85 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav bd-hightlight ml-auto ">
-			<li class="nav-item active px-2">
-				<a class="nav-link" href="<?= site_url(); ?>">Accueil</a>
-			</li>
+		
+		<?php if($this->session->userdata('connect')) : ?>
+		
+			<ul class="navbar-nav bd-hightlight ml-auto ">
+				<li class="nav-item active px-2">
+					<a class="nav-link" href="<?= site_url(); ?>">Accueil</a>
+				</li>
 
-			<li class="nav-item px-2">
-				<a class="nav-link" href="<?= site_url(); ?>">Populaire</a>
-			</li>
+				<li class="nav-item px-2">
+					<a class="nav-link" href="<?= site_url(); ?>">Populaire</a>
+				</li>
 
-		</ul>
-        <form class="mx-auto my-auto m-perso">
-			<div class="form-group">
+			</ul>
+			<form class="mx-auto my-auto m-perso">
+				<div class="form-group">
+					
+					<input type="text" class="form-control" name="search_people" id="search_people" placeholder="Vous recherchez quelque chose...">
+					<div id="display_result" class="display_result">blablabla</div>
+					
+				</div>
 				
-				<input type="text" class="form-control" name="search_people" id="search_people" placeholder="Vous recherchez quelque chose...">
-				<div id="display_result" class="display_result">blablabla</div>
-				
-			</div>
-			
-        </form>
-        <ul class="navbar-nav navbar-right bd-hightlight ml-auto" id="navbar-right">
-            <li class="nav-item active">
-                <ul class="navbar-nav navbar-right mr-auto mx-4">
-                    <?php if($this->session->userdata('connect')) : ?>
-                    <li class="nav-item active px-2">
-                        <a class="nav-link" href="#">Catégorie</a>
-                    </li>
+			</form>
+			<ul class="navbar-nav navbar-right bd-hightlight ml-auto" id="navbar-right">
+				<li class="nav-item active">
+					<ul class="navbar-nav navbar-right mr-auto mx-4">
+						
+						<li class="nav-item active px-2">
+							<a class="nav-link" href="#">Catégorie</a>
+						</li>
 
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#">jsais pas encore</a>
-                    </li>
+						<li>
+							<div class="btn-group">
+								<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<?php 
+									if ($this->session->userdata('connect')){
+										echo $this->session->userdata('pseudo');
+									}
+									else{
+										echo "Mon Compte";
+									}  
+									?>
+										
+								</button>
+								<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item p-2 option-nav" href="<?= site_url(); ?>parametres">Parametres</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item p-2 option-deconnexion-nav" href="<?= site_url(); ?>deconnexion">Déconnexion</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		<?php endif; ?>
+        <section class="d-flex  inner">
+            <ul class="navbar-nav navbar-right icons d-flex">
+                <li>
+                    <a href="#" class="icon alt">
+                        <span class="label rad-icons twitter"><ion-icon title="twitter" name="logo-twitter"></ion-icon></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="icon alt">
+                        <span class="label rad-icons facebook"><ion-icon title="facebook" name="logo-facebook"></ion-icon></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="icon alt">
+                        <span class="label rad-icons instagram"><ion-icon title="instagram" name="logo-instagram"></ion-icon></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="icon alt">
+                        <span class="label rad-icons github"><ion-icon title="github" name="logo-github"></ion-icon></span>
+                    </a>
+                </li>
+            </ul>
 
-                    <li>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<?php 
-								if ($this->session->userdata('connect')){
-									echo $this->session->userdata('pseudo');
-								}
-								else{
-									echo "Mon Compte";
-								}  
-								?>
-									
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item p-2 option-nav" href="<?= site_url(); ?>parametres">Parametres</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item p-2 option-deconnexion-nav" href="<?= site_url(); ?>deconnexion">Déconnexion</a>
-                            </div>
-                        </div>
-                    </li>
-                    <?php endif; ?>
-
-                </ul>
-            </li>
-        </ul>
+        </section>
     </div>
 </nav>
 

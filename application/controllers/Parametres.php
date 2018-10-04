@@ -33,7 +33,6 @@ class Parametres extends CI_Controller{
 
         $data['title'] = "Paramètres";
 
-
         $this->load->view('templates/_header', $data);
         $this->load->view('templates/_nav');
         $this->load->view('parametres/parametres_view', $data);
@@ -43,8 +42,6 @@ class Parametres extends CI_Controller{
     public function do_upload()
     {
         $id = $this->input->get('id');
-
-        var_dump($id);
 
         $config['upload_path']          = './assets/images/profil_pictures';
         $config['allowed_types']        = 'gif|jpg|png';
@@ -73,6 +70,27 @@ class Parametres extends CI_Controller{
 
             redirect('parametres?id='.$id, auto);
         }
+    }
+
+    public function update_profil_config()
+    {
+        $get_user = find_user_by_id($this->session->userdata('user_id'));
+
+        $id = $get_user->id;
+
+        $nom = $this->input->post('nom');
+
+        $prenom = $this->input->post('prenom');
+
+        $pseudo = $this->input->post('pseudo');
+
+        $email = $this->input->post('email');
+
+        $metier = $this->input->post('metier');
+
+        $data = $this->parametres_model->profil_update_model($id, $nom, $prenom, $pseudo, $email, $metier);
+
+        echo json_encode($data);
     }
 
 

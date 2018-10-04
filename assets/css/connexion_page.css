@@ -1,11 +1,10 @@
 .box-form{
 	position: relative;
 	z-index: 1;
-	padding: 3rem 3.5rem;
+	/* padding: 3rem 3.5rem; */
 	margin: 0 2rem;
 	box-sizing: border-box;
 	background: #fff;
-
 	border-radius: 10px;
 	box-shadow: 1px 1px 6px #222222, -1px 1px 6px #222222, -1px -1px 6px #222222, 1px -1px 6px #222222;
 	
@@ -14,15 +13,12 @@
 .box-form h3{
 	margin-top: -2rem;
 	color: #000;
-
 	text-decoration: underline;
 	padding-bottom: 0.3rem;
 }
 
-
 .check{
 	color: #000; !important;
-
 }
 
 label{
@@ -40,11 +36,11 @@ input[type=checkbox]{
 	outline: 0 !important;
 	background-color: transparent !important;
 	color: #000 !important;
-
     border: none !important;
 	border-bottom: 1px solid #000 !important;
 	border-radius: 0;
 	position: relative;
+	display:inline !important;
 }
 
 .login-input:focus{
@@ -67,6 +63,7 @@ input[type=checkbox]{
 
 .site-name{
 	text-align: center;
+    text-decoration:none;
 	color: #fff;
 	font-size:2.2rem;
 	text-shadow: 5px 0px 5px rgba(34, 34, 34, 1);
@@ -80,12 +77,23 @@ input[type=checkbox]{
 .text-shadow-white{
 	text-shadow: 2px 1px 6px #222, -2px 1px 6px #222, -2px -1px 6px #222, 2px -1px 6px #222;
 }
+.input-group-prepend{
+	width:30px;
+	height:30px;
+	box-sizing:border-box;
+	position:relative;
+	border:none;
+
+	padding:5px;
+	margin:7px;
+	background-color:transparent;
+}
+.input-group-text{
+	border:none;
+	background-color:transparent;
+}
 #eye-off{
-	position: absolute;
-	right: 0;
-	top: 41%;
-	padding-right: 4.5rem;
-	margin: 3px;
+	position:absolute;
 	color: #000;
 	text-shadow: 2px 1px 6px #eee, -2px 1px 6px #eee, -2px -1px 6px #eee, 2px -1px 6px #eee;
 	font-size: 1.55rem;
@@ -104,7 +112,275 @@ span.icon-help{
 	padding: .2rem;
 }
 
-a.link-mp{
-
+h3.h4{
+	background-color:#007bff;
+	text-decoration:none;
+	border-bottom:0.5px solid #00050a;
+	color:white;
+	box-shadow: 1px 1px 6px #222222, -1px 1px 6px #222222, -1px -1px 6px #222222, 1px -1px 6px #222222;
+}
+.box-complement{
+    background-color: #343a40;
+    color:#fff;
+}
+.text-comp{
+	font-family: 'Merriweather', serif;
+	font-weight:700;
+	font-size: 2.25rem;
+	letter-spacing:2px;
 }
 
+.phrase{
+	font-family: 'Kodchasan', sans-serif !important;
+}
+.image.main {
+    display: block;
+    margin: 4rem 0;
+    width: 100%;
+}
+
+a.image {
+    overflow: hidden;
+}
+.image {
+    border: 0;
+    display: inline-block;
+    position: relative;
+}
+a {
+    color: #212931;
+    border-bottom-color: rgba(33, 41, 49, 0.5);
+}
+a {
+    -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-bottom: dotted 1px;
+    text-decoration: none;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+#main > .post.featured {
+    text-align: center;
+}
+
+ul.actions.special {
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: 0;
+}
+ul.actions {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    cursor: default;
+    list-style: none;
+    margin-left: 0rem;
+    padding-left: 0;
+}
+input[type="submit"].large, input[type="reset"].large, input[type="button"].large, button.large, .button.large {
+    font-size: 0.9rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    padding: 0 2.75rem;
+}
+
+ul.icons {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+    color:#fff;
+}
+ul.icons li {
+    display: inline-block;
+    padding: 0 1em 0 0;
+}
+ a.icon{
+     color:#fff;
+     text-decoration: none;
+ }
+ a.icon.alt:before {
+     -moz-transition: background-color 0.2s ease-in-out;
+     -webkit-transition: background-color 0.2s ease-in-out;
+     -ms-transition: background-color 0.2s ease-in-out;
+     transition: background-color 0.2s ease-in-out;
+ }
+.icon.alt:before {
+    background-color: #ffffff;
+    border-radius: 100%;
+    color: #242943;
+    display: inline-block;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    width: 2em;
+}
+.icon:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none !important;
+}
+
+@media screen and (max-width: 1680px){
+    .spotlights > section > .image {
+        width: 40%;
+    }
+}
+
+.image {
+    border: 0;
+    display: inline-block;
+    position: relative;
+}
+
+@media screen and (max-width: 1680px){
+    .spotlights > section > .content {
+        width: 60%;
+    }
+}
+.rad-icons{
+    background-color: #ffffff;
+    border-radius: 100%;
+    color: #242943;
+    display: inline-block;
+    height: 2em;
+    line-height: 2.2em;
+    text-align: center;
+    width: 2em;
+}
+.rad-icons.twitter:hover{
+    color:#fff;
+    background-color:#1da1f2;
+}
+.rad-icons.facebook:hover{
+    color:#fff;
+    background-color: #2b4170;
+    background: -moz-linear-gradient(top, #3b5998, #2b4170);
+    background: -ms-linear-gradient(top, #3b5998, #2b4170);
+    background: -webkit-linear-gradient(top, #3b5998, #2b4170);
+    border: 1px solid #2b4170;
+    text-shadow: 0 -1px -1px #1f2f52;
+}
+.rad-icons.instagram:hover{
+    color:#fff;
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
+
+.rad-icons.github:hover{
+    color:#fff;
+    background-color:#000;
+}
+a.btn-floating{
+    background-color:#007bff;
+    color:#fff;
+}
+hr.under-title{
+    color:#fff !important;
+    background-color:#fff !important;
+}
+.major h3{
+    text-transform: uppercase;
+    font-family: 'Merriweather', serif !important;
+    font-size:1.6rem;
+}
+footer#footer {
+    padding: 5em 0 6em 0;
+    background-color: #f6f6f6 !important;
+    display:block;
+}
+#footer .inner {
+    width: 100%;
+    max-width: 68em;
+    margin: 0 auto;
+    padding: 0 2.5em;
+}
+#footer > .inner section.news{
+    width: calc(66% - 2.5em);
+    margin-right: 2.5em;
+}
+h2.get-news, h2.get-follow{
+    font-weight: 900;
+    line-height: 1.5;
+    margin: 0 0 2em 0;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+}
+#footer > .inner > * > :last-child {
+    margin-bottom: 0;
+}
+
+form#news-letter{
+    margin: 0 0 2em 0;
+    overflow-x: hidden;
+}
+#form > .fields {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: calc(100% + 3em);
+    margin: -1.5em 0 2em -1.5em;
+}
+input[type="submit"].primary {
+    box-shadow: none;
+    background-color: #585858;
+    color: #ffffff !important;
+}
+section{
+    display:block;
+}
+#footer > .inner section.follow {
+    width: calc(33% - 2.5em);
+    margin-left: 2.5em;
+}
+#footer > .inner .copyright {
+    width: 100%;
+    padding: 0;
+    margin-top: 5em;
+    list-style: none;
+    font-size: 0.8em;
+    color: rgba(88, 88, 88, 0.5);
+}
+#footer > .inner .copyright li:first-child {
+    border-left: 0;
+    padding-left: 0;
+    margin-left: 0;
+}
+#footer > .inner .copyright li {
+    display: inline-block;
+    border-left: solid 1px rgba(23, 23, 23, 0.15);
+    line-height: 1;
+    padding: 0 0 0 1em;
+    margin: 0 0 0 1em;
+}
+#footer > .inner .copyright a {
+    color: inherit;
+}

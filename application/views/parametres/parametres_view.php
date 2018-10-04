@@ -33,13 +33,14 @@
 
                             <?php echo form_open_multipart('parametres/do_upload?id='.$user_by_id->id); ?>
 
-                            <div class="input-group mb-3">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input file-upload center-block" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="userfile">
-                                </div><hr><br>
-                                <label class="custom-file-label text-center" for="inputGroupFile01" style="text-align: left !important;">Choose file</label>
-                            </div>
-                            <button class="btn btn-md btn-success btn-change-picture col-sm-4 offset-sm-4 col-md-8 offset-md-2 col-lg-6 offset-lg-3" type="submit"><ion-icon name="cloud-done"></ion-icon> Enregistrer</button>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input file-upload center-block" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="userfile">
+                                    </div><hr><br>
+                                    <label class="custom-file-label text-center" for="inputGroupFile01" style="text-align: left !important;">Choose file</label>
+                                </div>
+
+                                <button class="btn btn-md btn-success btn-change-picture col-sm-4 offset-sm-4 col-md-8 offset-md-2 col-lg-6 offset-lg-3" type="submit"><ion-icon name="cloud-done"></ion-icon> Enregistrer</button>
 
                             <?php form_close(); ?>
 
@@ -50,42 +51,42 @@
                 </div>
                 <div class="col-md-6">
                     <!-- Default form register -->
-                    <?= form_open('profil/update_profil', 'data-parsley-validate class="border border-light"', ""); ?>
+                    <?= form_open('parametres/update_profil', 'data-parsley-validate class="border border-light"', ""); ?>
 
                     <p class="h4 mb-4 text-center mt-3">Changez vos informations</p>
 
                     <div class="col-md-10 offset-md-1">
                         <!-- Noms -->
                         <div class="form-group mb-3">
-                            <label for="FirstName"><strong>Noms</strong></label>
-                            <input type="text" value="<?= $user_by_id->nom; ?>" id="FirstName" class="form-control" placeholder="Noms">
+                            <label for="FirstName"><strong>Nom</strong></label>
+                            <input type="text" value="<?= $user_by_id->nom; ?>" id="nom" class="form-control" placeholder="Noms">
                         </div>
 
                         <!-- Prénoms -->
                         <div class="form-group mb-3">
-                            <label for="LastName"><strong>Prénoms</strong></label>
-                            <input type="text" value="<?= $user_by_id->prenom; ?>" id="LastName" class="form-control" placeholder="Prénoms">
+                            <label for="LastName"><strong>Prénom</strong></label>
+                            <input type="text" value="<?= $user_by_id->prenom; ?>" id="prenom" class="form-control" placeholder="Prénoms">
                         </div>
 
                         <!-- Pseudo -->
                         <div class="form-group mb-3">
                             <label for="Pseudo"><strong>Pseudo</strong></label>
-                            <input type="text" value="<?= $user_by_id->pseudo; ?>" id="Pseudo" class="form-control" placeholder="Pseudo">
+                            <input type="text" value="<?= $user_by_id->pseudo; ?>" id="pseudo" class="form-control" placeholder="Pseudo">
                         </div>
 
                         <!-- E-mail -->
                         <div class="form-group mb-3>
                             <label for="Email"><strong>Email</strong></label>
-                            <input type="text" value="<?= $user_by_id->email; ?>" id="Email" class="form-control" placeholder="Email">
+                            <input type="text" value="<?= $user_by_id->email; ?>" id="email" class="form-control" placeholder="Email">
                         </div>
 
                         <!-- Metier -->
                         <div class="form-group mb-3">
                             <label for="Metier"><strong>Metier</strong></label>
-                            <input type="text" value="<?= $user_by_id->metier; ?>" id="Metier" class="form-control" placeholder="Metier">
+                            <input type="text" value="<?= $user_by_id->metier; ?>" id="metier" class="form-control" placeholder="Metier">
                         </div>
                         <!-- Save data button -->
-                        <button class="btn btn-success my-3 btn-block" type="submit">Enregistrer</button>
+                        <button class="btn btn-success my-3 btn-block" type="submit" id="btn-update-profil">Enregistrer</button>
                     </div>
                     <?= form_close(); ?>
 

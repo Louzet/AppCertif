@@ -141,5 +141,6 @@ $autoload['model'] = array(
 	'barre_search_model', 
 	'messages_model',
 	'faker_fixtures_model',
-	'arts_model'
+	'arts_model',
+    'parametres_model'
 );
