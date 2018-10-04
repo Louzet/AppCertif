@@ -63,7 +63,8 @@
 				</li>
 			</ul>
 		<?php endif; ?>
-        <section class="d-flex  inner">
+        <?php if(!$this->session->userdata('connect')) : ?>
+            <section class="d-flex inner">
             <ul class="navbar-nav navbar-right icons d-flex">
                 <li>
                     <a href="#" class="icon alt">
@@ -88,6 +89,7 @@
             </ul>
 
         </section>
+        <?php endif; ?>
     </div>
 </nav>
 
@@ -105,7 +107,7 @@
 <!-- message flash réussite de connexion  -->
 <?php if($this->session->flashdata('Connexion réussie')) : ?>
     <div class="alert alert-success text-center" role="alert">
-	<span><?= 'Welcome Back ' . $this->session->userdata('pseudo') . ', </span>'; ?>
+	<span><?= 'Bon retour ' . $this->session->userdata('pseudo') . ', </span>'; ?>
         <strong><?= $this->session->flashdata('Connexion réussie'); ?></strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

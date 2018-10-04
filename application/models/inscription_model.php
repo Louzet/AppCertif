@@ -15,9 +15,14 @@ class inscription_model extends CI_Model
 		
 	}
 
-	public function inscription($nom, $prenom, $pseudo, $email, $password, $profil_image)
+	public function inscription($nom, $prenom, $pseudo, $email, $password)
 	{
 		setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.utf8');
+
+        /**
+         * enregistrement d'une photo de profil par défaut;
+         */
+		$profil_image = 'noimage.png';
 
         $this->db->set('nom', $nom);
         $this->db->set('prenom', $prenom);
@@ -27,7 +32,7 @@ class inscription_model extends CI_Model
 		
 		$this->db->set('created_at', 'NOW()', false);
 
-		$this->db->set('profil_image', 'noimage.png');
+		$this->db->set('profil_image', $profil_image);
 		
 		/* enregistrement des données dans la BDD */
 		return $this->db->insert($this->table_users);

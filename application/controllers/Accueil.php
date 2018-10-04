@@ -64,7 +64,7 @@ class Accueil extends CI_Controller
 
 			// $hash = $pseudo.'-'.$hash['key'];
             
-            // charger les infos user contenu dans $data dans ce controller pour afficher la photo de profil utilisateur
+            // charger les infos user content dans $data dans ce controller pour afficher la photo de profil utilisateur
             //$this->output->enable_profiler(true);
             $this->load->view('templates/_header', $data, $hash);
             $this->load->view('templates/_nav', $data, $hash);

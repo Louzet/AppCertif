@@ -45,6 +45,7 @@ class Inscription extends  CI_Controller
 				
 				$email = strtolower($this->input->post('email'));
 
+
 				// load helper password hash
 				$this->load->helper('password_helper');
 

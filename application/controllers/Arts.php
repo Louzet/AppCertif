@@ -5,6 +5,8 @@ class Arts extends CI_Controller{
 	public function __construct()
 	{
 		parent::__construct();
+
+        $this->load->helper('functions_helper');
 		
 	}
 
@@ -58,6 +60,7 @@ class Arts extends CI_Controller{
 
 	public function create_art()
 	{
+        $data['title'] = 'Arts';
 		/**
 		 * empêcher d'arriver sur cette page, si on est pas connecté
 		 */
@@ -66,7 +69,11 @@ class Arts extends CI_Controller{
             redirect('connexion');
 		}
 
-		/*if(!empty($_GET['id'])){
+        if(!empty($_GET['id'])){
+
+            /**
+             * Load function helper, pour retrouver l'utilisateur grâce à son id
+             */
 
             $data['user_by_id'] = find_user_by_id($_GET['id']);
 
@@ -74,20 +81,24 @@ class Arts extends CI_Controller{
 
                 redirect("connexion");
             }
-            else{
 
-                $user_id = $this->session->userdata('user_id');
+        }
+        else{
 
-                redirect("arts/create_art?id=".$user_id);
+            $user_id = $this->session->userdata('user_id');
 
-            }
+            redirect("arts/create_art?id=".$user_id);
 
-        }*/
+        }
 
 		$id = $this->session->userdata('user_id');
 
-        $data['title'] = 'Arts';
-		
+        /**
+         * form_validation
+         */
+
+
+
 		// get the user's data
 		$data['user'] = $this->users_model->profil($id);
 
@@ -101,12 +112,22 @@ class Arts extends CI_Controller{
 
 	public function create_art_action()
     {
+        $this->form_validation->set_rules('c-titre', 'c-titre', 'required|encode_php_tags');
 
-        $data = $this->arts_model->create_arts_model();
+        $this->form_validation->set_rules('editor', 'Editor', 'required|encode_php_tags');
 
-        var_dump($data);
+        if ($this->form_validation->run() === true) {
 
-        echo json_encode($data);
+            $this->arts_model->create_arts_model();
+
+            $validator['success'] = true;
+            $validator['message'] = "Votre art a bien été enregistré ! ";
+
+        }
+        else{
+            $validator['success'] = false;
+        }
+        echo json_encode($validator);
     }
 
 	public function edit_art()

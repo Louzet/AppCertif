@@ -75,7 +75,7 @@ class Posts extends CI_Controller
 
 	// 	$this->form_validation->set_rules('img_posts', 'Img Posts', 'encode_php_tags');
 		
-	// 	$contenu    = $this->input->post('contenu_posts');
+	// 	$content    = $this->input->post('contenu_posts');
 
 	// 	$userfile   = $this->input->post('userfile');
 
@@ -91,13 +91,13 @@ class Posts extends CI_Controller
 			
 	// 			$this->uploadfile();
 
-	// 			$this->posts_model->create_posts_model($contenu, $img_posts = FALSE);
+	// 			$this->posts_model->create_posts_model($content, $img_posts = FALSE);
 
 	// 			$data['img_posts'] = false;
 
 	// 			$img_posts == $data['img_posts'];
 
-	// 			$this->posts_model->create_posts_model($contenu, $img_posts = false);
+	// 			$this->posts_model->create_posts_model($content, $img_posts = false);
 
 	// 			redirect('accueil', $data);
 					
@@ -109,7 +109,7 @@ class Posts extends CI_Controller
 
 	// 			$data['img_posts'] = preg_replace('/\s/','_', $file_data);
 
-	// 			$this->posts_model->create_posts_model($contenu, $img_posts = $data['img_posts']);
+	// 			$this->posts_model->create_posts_model($content, $img_posts = $data['img_posts']);
 
 	// 			redirect('accueil', $data);
 	// 		}

@@ -119,7 +119,7 @@
 								<div class="line-divider"></div>
 									<div class="post-text mt-3">
 
-										<p><?= $post['contenu'] ;?><i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i>
+										<p><?= $post['content'] ;?><i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i>
 										</p>
 
 									</div>

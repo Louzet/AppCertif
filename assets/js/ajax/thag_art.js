@@ -10,27 +10,39 @@ $(document).ready(function(){
     /**
      * btn save art created
      */
-	$('.btn-save-art').on('click', function(e){
 
-	    var titre = $('#c-titre').val();
-	    var contenu = $('#editor').val();
+    $('#form_create_arts').on('submit', function (event) {
 
-	    console.log('titre : '+titre, 'et le contenu :'+contenu);
+        event.preventDefault();
+
+        var form = $(this);
 
         $.ajax({
-            type:'post',
-            url: 'http://localhost/AppCertif/arts/create_art_action',
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
             dataType: 'json',
-            data:{'titre':titre, 'contenu':contenu},
-            success:function(data){
-                console.log(data);
+            success: function (response) {
+                if(response.success == true){
+                    $('#message').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                        '  <strong>'+response.message+'</strong>' +
+                        '  <button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                        '    <span aria-hidden="true">&times;</span>\n' +
+                        '  </button>\n' +
+                        '</div>');
 
+                    $('#form_create_arts')[0].reset();
+                    $('.text-danger').remove();
+                }
             },
-
-            error:function(){
-                console.log('error');
+            error: function () {
+                $('#message').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    '  <strong>'+response.message+'</strong>' +
+                    '  <button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '    <span aria-hidden="true">&times;</span>\n' +
+                    '  </button>\n' +
+                    '</div>');
             }
-
         });
     });
 
@@ -38,7 +50,7 @@ $(document).ready(function(){
     /**
      *  show modal when user wanna delete one art
      */
-    $('.btn_delete_art').on('click', function(){
+    $(document).on('click', '.btn_delete_art', function(){
     	var id = $(this).attr('id');
     	var titre = $(this).attr('value');
 
@@ -75,52 +87,52 @@ $(document).ready(function(){
     });
 
 
+    save_titre_thread();
 
-	$('#save_titre').on('click', function(e){
-		e.preventDefault();
-		save_titre_thread();
-	 	var titre = $('#defaultTitleEditor').val();
-	 	titre = '';
-	 	var html;
-	 	function save_titre_thread(titre)
-	 	{
-	 		console.log(titre);
-			
+	function save_titre_thread(titre)
+	{
+		$('#save_titre').on('click', function(e){
+			e.preventDefault();
+
+			var titre = $('#defaultTitleEditor').val();
+			titre = '';
+			var html;
+			console.log(titre);
+
 			$.ajax({
-	 			url : 'http://localhost/AppCertif/arts/save_title',
-	 			dataType: 'json',
-	 			data: { 'titre' : titre},
-	 			method: "POST",
+				url : 'http://localhost/AppCertif/arts/save_title',
+				dataType: 'json',
+				data: { 'titre' : titre},
+				method: "POST",
 				success: function(data) {
-	 				console.log(data);
-	 				html = 	'<span class="alert alert-success ml-3" role="alert">'+
-	 							'Votre titre a été enregistré</span>'+
+					console.log(data);
+					html = 	'<span class="alert alert-success ml-3" role="alert">'+
+								'Votre titre a été enregistré</span>'+
 							'</span>';
 
-	 				$('.msg_titre').html(html);
-	 				$('#save_titre').attr('disabled', true);
-	 				$('#save_titre').css('cursor', 'not-allowed');
-					
+					$('.msg_titre').html(html);
+					$('#save_titre').attr('disabled', true);
+					$('#save_titre').css('cursor', 'not-allowed');
+
 
 					$('#defaultTitleEditor').addClass('is-valid').removeClass('is-invalid');
 
-	 				window.setTimeout(function() {
-	 					$("span.alert").fadeTo(200, 0).slideUp(200, function(){
-	 						$(this).remove();
-	 					});
-	 				}, 3000);
+					window.setTimeout(function() {
+						$("span.alert").fadeTo(200, 0).slideUp(200, function(){
+							$(this).remove();
+						});
+					}, 3000);
 
-	 			},
-	
-	 			error: function(){
+				},
+
+				error: function(){
 					console.log("error")
-	 			}
-	
-			});
-		}
+				}
 
-	 });
-	
+			});
+		});
+	}
+
 
 	load_save_titre_thread();
 

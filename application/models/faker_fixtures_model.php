@@ -21,7 +21,7 @@ class faker_fixtures_model extends CI_Model{
 			$this->db->set('date_creation', $faker->dateTimeBetween('-1 months')->format('Y-m-d H:i'));
 			$this->db->set('derniere_modification', $faker->dateTimeBetween('-1 months')->format('Y-m-d H:i'));
 			$this->db->set('image_couverture', $faker->imageUrl($width = 640, $height = 480));
-			$this->db->set('contenu', $faker->paragraph(5));
+			$this->db->set('content', $faker->paragraph(5));
 
 			return $this->db->insert($this->table_faker);
 

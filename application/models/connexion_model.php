@@ -32,48 +32,21 @@ class connexion_model extends CI_Model
 			$this->load->helper('password_helper');
 
 			if(password_verify_helper($password, $query[0]->password)){
+
 				return $query[0]->id;
+
 			}
 		}
 
-		die();
+		else
+		{
+			$this->output->enable_profiler(TRUE);
+
+			var_dump($result->result());
 
 
-		
-		// $password_hash = password_hash($password, PASSWORD_BCRYPT);
-
-		// $password_verify = password_verify($password, $password_hash);
-		
-		// // matches data
-		// $this->db->where('pseudo', $pseudo);
-
-		// $result = $this->db->get($this->table);
-
-		// $query = $result->row_array();
-
-		// var_dump($password .' , '. $password_hash .' ,' . $password_verify);
-
-		// // get id from database, if existe this pseudo and password
-		// if(!empty($query))
-		// {
-		// 	var_dump($query['password']);
-		// 	if($password_verify == TRUE){
-		// 		echo "true";
-		// 	}
-		// 	else{
-		// 		echo "false";
-		// 	}
-		// 	die();
-			
-			
-		// }
-		// else
-		// {
-		// 	$this->output->enable_profiler(TRUE);
-		// 	var_dump($result->result());
-		// 	die('et');
-		// 	return FALSE;
-		// }
+		 	echo "problème de connexion";
+		}
 		
     }
  

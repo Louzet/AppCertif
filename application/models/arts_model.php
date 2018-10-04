@@ -6,31 +6,33 @@ class arts_model extends CI_Model{
 
 	public function create_arts_model()
 	{
+        $this->load->helper('functions_helper');
 
-		$this->load->helper('functions_helper');
+        $get_user = find_user_by_id($this->session->userdata('user_id'));
 
-		$get_user = find_user_by_id($this->session->userdata('user_id'));
+        $id_auteur = $get_user->id;
 
-		$id_auteur = $get_user->id;
+        $auteur = $get_user->pseudo;
 
-		$auteur = $get_user->pseudo;
+        /**
+         *  enregistrement des datas de nouvel art
+         */
 
-		var_dump($id_auteur . ' '  . $auteur . ' ' );
+		$this->db->set('titre', $this->input->post('c-titre'));
 
-		$titre = $this->input->post('#c-titre');
+		$this->db->set('id_auteur', $id_auteur);
 
-		$contenu = $this->input->post('editor');
+		$this->db->set('auteur', $auteur);
 
-		$data = [
-            'titre'                 =>     $titre,
-            'id_auteur'             =>     $id_auteur,
-            'auteur'                =>     $auteur,
-            'date_creation'         =>     'NOW()',
-            'derniere_modification' =>     'NOW()',
-            'contenu'               =>     $contenu
-        ];
+		$this->db->set('date_creation', 'NOW()', false);
 
-        return $query = $this->db->insert($this->table_arts, $data);
+		$this->db->set('derniere_modification', 'NOW()', false);
+
+		$this->db->set('contenu', $this->input->post('editor'));
+
+        $query = $this->db->insert($this->table_arts);
+
+        return $query;
 
 	}
 

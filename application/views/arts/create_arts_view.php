@@ -17,37 +17,30 @@
 		</div>
 
 		<div class="col-md-9">
+            <div id="message"></div>
 			<div class="ckeditor_thag">
 
-                     <?= form_open('arts/create_art', 'data-parsley-validate id="form-create-arts"', ""); ?>
+                     <?= form_open('arts/create_art_action', 'data-parsley-validate id="form_create_arts"', ""); ?>
                             <div class="form-row">
                                 <div class="col-md-6">
-
                                     <h5>Titre :</h5>
                                     <!-- Titre -->
-                                    <input type="text" name="c-titre" id="c-titre" value="" class="form-control mb-2" placeholder="Titre de votre nouveau thread" required autofocus data-parsley-minlength="1" data-parsley-maxlength="6000" data-parsley-trigger="change">
-
-
+                                    <input type="text" name="c-titre" id="c-titre" class="form-control mb-2" placeholder="Titre de votre nouveau thread" required autofocus data-parsley-minlength="1" data-parsley-maxlength="6000" data-parsley-trigger="change">
                                 </div>
                                 <div class="col-md-6">
                                     <span class="msg_titre"></span>
                                 </div>
                             </div>
 
-
-
-
-						<div id="toolbar-container"></div>
-						<!-- This container will become the editable. -->
-						<textarea id="editor" name="editor" class="form-control">
-							<p>Effacez cette ligne, et Commencez à créer un thread, un roman, etc...</p>
-						</textarea>
-						<div class="btns my-3">
-							<!-- edit action -->
-							<button type="submit" class="btn btn-default">Editer</button>
-							<!-- save action -->
-							<button type="submit" class="btn btn-success btn-save-art">Enregistrer</button>
-						</div>
+                            <div id="toolbar-container"></div>
+                            <!-- This container will become the editable. -->
+                            <textarea id="editor" name="editor" class="form-control" required autofocus data-parsley-minlength="1" data-parsley-maxlength="6000" data-parsley-trigger="change">
+                                <p>Effacez cette ligne, et Commencez à créer un thread, un roman, etc...</p>
+                            </textarea>
+                            <div class="btns my-3">
+                                <!-- save action -->
+                                <button type="submit" class="btn btn-success btn-save-art">Enregistrer</button>
+                            </div>
 					<?= form_open(); ?>
 			</div>
 		</div>

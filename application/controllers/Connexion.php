@@ -48,12 +48,12 @@ class Connexion extends  CI_Controller
 			// get password encrypted
 			$password = $this->input->post('password');
 			
-			$user_id  = $this->connexion_model->login($pseudo, $password);
 
 			/**
 			 *  enregistrement des données en cookies, si l'utilisateur
 			 *  coché le "remember me";
 			 */
+            $user_id  = $this->connexion_model->login($pseudo, $password);
 
 			if($this->input->post('remember') != NULL){
 
@@ -71,6 +71,7 @@ class Connexion extends  CI_Controller
 					// 'prefix' => 'thag_',
 					'secure'   =>   TRUE
 				);
+
 
 				$this->input->set_cookie( $cookie );
 			}
@@ -102,9 +103,11 @@ class Connexion extends  CI_Controller
             }
             else
             {
+                var_dump($user_id  = $this->connexion_model->login($pseudo, $password));
                 /* message flash echec de connexion */
                 $this->session->set_flashdata('Connexion échouée', 'Impossible de se connecter ! verifiez vos identifiants');
 
+                die();
                 /* redirect vers la page login */
                 redirect('connexion');
             }
