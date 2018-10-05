@@ -8,8 +8,8 @@
 			<?php foreach($edit_arts as $arts) : ?><!-- foreach -->
 			<div class="table">
 				<ul class="nav md-pills pills-info text-center">
-					<li class="nav-item"><strong>Auteur : </strong><?= ucfirst(str_replace('_', ' ', $arts->titre)); ?></li>
-					<li class="nav-item"><strong>Titre : </strong><?= $arts->auteur; ?></li>
+					<li class="nav-item"><strong>Auteur : </strong><?= ucfirst(str_replace('_', ' ', $arts->titre)); ?></li><br>
+					<li class="nav-item"><strong>Titre : </strong><?= $arts->auteur; ?></li><br>
 					<li class="nav-item"><strong>Crée le : </strong><?= date('d F Y', strtotime($arts->date_creation)); ?></li>
 				</ul>
 			</div>

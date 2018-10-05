@@ -56,24 +56,13 @@ class arts_model extends CI_Model{
 		}
 	}
 
-	public function delete_arts_model()
+	public function delete_arts_model($id)
 	{
-
-		/*$id_auteur = $_GET['id'];*/
-
-        /*$id = $this->input->get('dataid');
-
         $id_auteur = $this->input->get('id');
 
-        $this->db->where('id', $id);
+        var_dump($id_auteur);
 
         $this->db->where('id_auteur', $id_auteur);
-
-        $this->db->delete($this->table_arts);
-
-        return true;*/
-
-        $id = $this->input->get('id');
 
         $this->db->where('id', $id);
 
@@ -113,11 +102,6 @@ class arts_model extends CI_Model{
 		$query = $this->db->get($this->table_arts);
 
 		return $query->result();
-	}
-
-	public function save_arts()
-	{
-
 	}
 
 	public function save_title_model($title)

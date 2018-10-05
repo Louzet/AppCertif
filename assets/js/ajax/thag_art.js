@@ -66,10 +66,10 @@ $(document).ready(function(){
             var id = $('#centralModalSuccess').data('id');
 
             $.post({
-                methode:'get',
+                methode:'post',
                 url: 'http://localhost/AppCertif/arts/delete_art',
                 dataType: 'json',
-                data:$('#form-create-arts').serialize(),
+                data:{id:id},
                 success:function(data){
                     console.log(data);
 
@@ -91,16 +91,19 @@ $(document).ready(function(){
 
 	function save_titre_thread(titre)
 	{
-		$('#save_titre').on('click', function(e){
+		$('#c-titre').on('change', function(e){
 			e.preventDefault();
 
 			var titre = $('#defaultTitleEditor').val();
 			titre = '';
 			var html;
+
+            var form = $('#form_create_arts');
 			console.log(titre);
 
 			$.ajax({
-				url : 'http://localhost/AppCertif/arts/save_title',
+
+				url : form.attr('action'),
 				dataType: 'json',
 				data: { 'titre' : titre},
 				method: "POST",

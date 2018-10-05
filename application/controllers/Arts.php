@@ -93,15 +93,8 @@ class Arts extends CI_Controller{
 
 		$id = $this->session->userdata('user_id');
 
-        /**
-         * form_validation
-         */
-
-
-
 		// get the user's data
 		$data['user'] = $this->users_model->profil($id);
-
 
 		$this->load->view('templates/_header', $data);
         $this->load->view('templates/_nav');
@@ -112,6 +105,9 @@ class Arts extends CI_Controller{
 
 	public function create_art_action()
     {
+        /**
+         * form validation
+         */
         $this->form_validation->set_rules('c-titre', 'c-titre', 'required|encode_php_tags');
 
         $this->form_validation->set_rules('editor', 'Editor', 'required|encode_php_tags');
@@ -181,9 +177,11 @@ class Arts extends CI_Controller{
 	public function delete_art()
 	{
 
-		$data = $this->arts_model->delete_arts_model();
+		$this->arts_model->delete_arts_model($id);
 
-		echo json_encode($data);
+		$validator['message'] = "Art supprimé ! ";
+
+		echo json_encode($validator);
 
 	}
 

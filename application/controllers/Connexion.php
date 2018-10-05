@@ -55,26 +55,34 @@ class Connexion extends  CI_Controller
 			 */
             $user_id  = $this->connexion_model->login($pseudo, $password);
 
-			if($this->input->post('remember') != NULL){
+            //enregistrement des données en cookie
+            if ($this->input->post('defaultLoginFormRemember') != NULL){
 
-				$value = [
-					'pseudo'   => $pseudo,
-					'password' => $password
-				];
+                $cookie1 = [
+                    'name'     => 'RememberPseudo',
+                    'value'    => $pseudo,
+                    'expire'   => '604800',
+                    'path'     => '/',
+                    'secure'   => true,
+                    'httponly' => true,
+                    'prefix'   => 'thag_',
+                    'domaine'  => '.localhost'
+                ];
 
-				$cookie = array(
-					'name'     =>   'connexion',
-					'value'    =>   $value,
-					'expire'   =>   time()+60*60*24*30,
-					'domaine'  =>   'www.thag.fr',
-					'path'     =>   '/',
-					// 'prefix' => 'thag_',
-					'secure'   =>   TRUE
-				);
+                $cookie2 = [
+                        'name'     => 'RememberPassword',
+                        'value'    => $password,
+                        'expire'   => '604800',
+                        'path'     => '/',
+                        'secure'   => true,
+                        'httponly' => true,
+                        'prefix'   => 'thag_',
+                        'domaine'  => '.localhost'
+                 ];
+                set_cookie($cookie1, $cookie2);
 
+            }
 
-				$this->input->set_cookie( $cookie );
-			}
 
 			/**
 			 *  Enregistrement des données en session

@@ -33,12 +33,13 @@
 
 							<?= form_open('connexion', 'data-parsley-validate id="form-connexion" class="text-center border border-light p-1"', ""); ?>
 								<div class="form-group col-md-10 offset-md-1">
-									<input type="text" name="pseudo" placeholder="Nom d'utilisateur..." class="login-input form-control mb-4" id="login-pseudo" data-parsley-minlength="3" data-parsley-trigger="change" value="<?= set_value('pseudo'); ?>" autofocus required>
+
+									<input type="text" name="pseudo" placeholder="Nom d'utilisateur..." class="login-input form-control mb-4" id="login-pseudo" data-parsley-minlength="3" data-parsley-trigger="change" value="<?= get_cookie('thag_RememberPseudo', true) ;?><?= set_value('pseudo'); ?>" autofocus required>
 									<?= form_error("pseudo", "<div class='text-danger errors'>", "</div>") ?>
 								</div>
 								
 								<div class="input-group col-md-10 offset-md-1">
-									<input type="password" name="password" placeholder="Mot de passe..." class="login-input form-control col-md-12 mb-4" id="login-password" data-parsley-minlength="6" data-parsley-trigger="change" autocomplete="autocomplete" required>
+									<input type="password" name="password" placeholder="Mot de passe..." class="login-input form-control col-md-12 mb-4" id="login-password" data-parsley-minlength="6" data-parsley-trigger="change" value="<?= get_cookie('thag_RememberPassword', true) ;?>" autocomplete="autocomplete" required>
 									<span class="input-group-prepend">
 										<ion-icon id="eye-off" name="eye-off" title="Maintenez cette icone pour voir votre mot de passe"></ion-icon>
 									</span>
@@ -49,7 +50,7 @@
 									<div>
 										<!-- Remember me -->
 										<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+											<input type="checkbox" class="custom-control-input" name="defaultLoginFormRemember" id="defaultLoginFormRemember">
 											<label class="custom-control-label check" for="defaultLoginFormRemember">Remember me</label>
 										</div>
 									</div>

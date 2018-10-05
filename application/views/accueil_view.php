@@ -1,8 +1,9 @@
 <?php
-// var_dump($this->session->userdata());
+var_dump($_COOKIE);
 
 ?>
-
+<p><?= get_cookie('thag_RememberPseudo', true) ;?></p>
+<p><?= get_cookie('thag_RememberPassword', true) ;?></p>
 <button class="scroll">
 	<a href="#">
 		<i class="fas fa-chevron-circle-up"></i>
