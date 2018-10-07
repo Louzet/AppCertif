@@ -6,6 +6,7 @@
 	<div class="row" style="padding:0;">
 		<div class="col-md-10 offset-md-1" style="padding:0;">
 			<div id="mybook">
+                <?php var_dump($show_arts); ?>
 				<div class='titre'>
 					<p class='titre-thread'><?= ucfirst(str_replace('_', ' ', $show_arts[0]->titre)) ;?></p>
 				</div>

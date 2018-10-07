@@ -36,7 +36,6 @@ class Connexion extends  CI_Controller
         }
         else
         {
-			
 			/**
 			 * On insert le pseudo et le password de l'utilisateur
 			 * dans le model, pour vérifier leurs existences et connecter l'utilisateur
@@ -47,42 +46,40 @@ class Connexion extends  CI_Controller
 
 			// get password encrypted
 			$password = $this->input->post('password');
-			
 
 			/**
 			 *  enregistrement des données en cookies, si l'utilisateur
 			 *  coché le "remember me";
 			 */
-            $user_id  = $this->connexion_model->login($pseudo, $password);
 
-            //enregistrement des données en cookie
             if ($this->input->post('defaultLoginFormRemember') != NULL){
-
-                $cookie1 = [
-                    'name'     => 'RememberPseudo',
+				
+				$cookie1 = [
+					'name'     => 'RememberPseudo',
                     'value'    => $pseudo,
                     'expire'   => '604800',
                     'path'     => '/',
                     'secure'   => true,
                     'httponly' => true,
                     'prefix'   => 'thag_',
-                    'domaine'  => '.localhost'
+                    'domaine'  => '.thag-service'
                 ];
-
+				
                 $cookie2 = [
-                        'name'     => 'RememberPassword',
-                        'value'    => $password,
-                        'expire'   => '604800',
-                        'path'     => '/',
-                        'secure'   => true,
-                        'httponly' => true,
-                        'prefix'   => 'thag_',
-                        'domaine'  => '.localhost'
-                 ];
-                set_cookie($cookie1, $cookie2);
-
+					'name'     => 'RememberPassword',
+					'value'    => $password,
+					'expire'   => '604800',
+					'path'     => '/',
+					'secure'   => true,
+					'httponly' => true,
+					'prefix'   => 'thag_',
+					'domaine'  => '.thag-service'
+				];
+                set_cookie($cookie1);
+                set_cookie($cookie2);
             }
 
+			$user_id  = $this->connexion_model->login($pseudo, $password);
 
 			/**
 			 *  Enregistrement des données en session
@@ -115,7 +112,6 @@ class Connexion extends  CI_Controller
                 /* message flash echec de connexion */
                 $this->session->set_flashdata('Connexion échouée', 'Impossible de se connecter ! verifiez vos identifiants');
 
-                die();
                 /* redirect vers la page login */
                 redirect('connexion');
             }

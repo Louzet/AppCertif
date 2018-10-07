@@ -1,9 +1,10 @@
 <?php
-var_dump($_COOKIE);
+var_dump($_SESSION);
 
-?>
-<p><?= get_cookie('thag_RememberPseudo', true) ;?></p>
-<p><?= get_cookie('thag_RememberPassword', true) ;?></p>
+//?>
+<!--<!--$user_id = $this->session->userdata('user_id');-->
+<!--<p>--><?//= get_cookie('thag_RememberPseudo', true) ;?><!--</p>-->
+<!--<p>--><?//= get_cookie('thag_RememberPassword', true) ;?><!--</p>-->
 <button class="scroll">
 	<a href="#">
 		<i class="fas fa-chevron-circle-up"></i>
@@ -89,7 +90,7 @@ var_dump($_COOKIE);
 					<?php  if(($post['img_posts'] !== '') && ($post['img_posts'] !== NULL) && ($post['img_posts'] !== '0' )) : ?>
 						<div class="sb">
                             <a href="<?= site_url('assets/images/posts_images/'.$post['img_posts']);?>" class="popup-link">
-                                <img src="<?= site_url('assets/images/posts_images/'.$post['img_posts']);?>" alt="post-image" class="img-fluid post-image mt-3" name="userfile" style="width:1343px;height: 755.023px;margin-top: 0px;margin-bottom: 0px;">
+                                <img src="<?= site_url('assets/images/posts_images/'.$post['img_posts']);?>" alt="post-image" class="img-fluid post-image mt-3" name="userfile" style="width:742px;height: 255px;margin-top: 0px;margin-bottom: 0px;">
                             </a>
 
 						</div>
@@ -102,10 +103,19 @@ var_dump($_COOKIE);
 								
 								<span class="text-muted my-auto d-flex justify-content-around">
 									<!-- la fonction time_ago() vient du helper "conv_date_helper"  -->
-									<span class="published mt-3 mr-5"><ion-icon name="time" id="ion-time"></ion-icon><?= time_ago($post['published_at']) ;?></span>
+									<span class="published mt-3 mr-5">
+                                        <ion-icon name="time" id="ion-time"></ion-icon>
+                                        <?= time_ago($post['published_at']) ;?>
+                                    </span>
 									<span class="reaction mt-1 ml-5">
-										<a class="btn text-green"><ion-icon name="thumbs-up" id="thumbs-up"></ion-icon></textarea><?= $post['like_posts']; ?></a>
-										<a class="btn text-red"><ion-icon name="thumbs-down" id="thumbs-down"></ion-icon></i> <?= $post['dislike_posts']; ?></a>
+										<a class="btn text-green">
+                                            <ion-icon name="thumbs-up" id="thumbs-up"></ion-icon>
+                                            <?= $post['like_posts']; ?>
+                                        </a>
+										<a class="btn text-red">
+                                            <ion-icon name="thumbs-down" id="thumbs-down"></ion-icon>
+                                            <?= $post['dislike_posts']; ?>
+                                        </a>
 									</span>
 
 								</span>
@@ -120,8 +130,12 @@ var_dump($_COOKIE);
 								<div class="line-divider"></div>
 									<div class="post-text mt-3">
 
-										<p><?= $post['content'] ;?><i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i>
+										<p id="modif_champ">
+                                            <?= $post['contenu'] ;?>
 										</p>
+                                        <div class="d-flex justify-content-start">
+                                            <span><a href="#" id="modif_post" class="link">Modifier...</a></span>
+                                        </div>
 
 									</div>
 								<div class="line-divider"></div>
@@ -200,28 +214,28 @@ var_dump($_COOKIE);
 						</div>
 					</div>
 					<div class="col-md-12 mb-5 my-5">
-						<div><h4 class="text-center my-1 titleh4">Photos</h4></div>
-
-						<div class="row">
-							<div class="col-md-4">
-								<div class="brique-photo"></div>
-							</div>
-							<div class="col-md-4">
-								<div class="brique-photo"></div>
-							</div>
-							<div class="col-md-4">
-								<div class="brique-photo"></div>
-							</div>
-						
-							<div class="col-md-4">
-								<div class="brique-photo"></div>
-							</div>
-							<div class="col-md-4">
-								<div class="brique-photo"></div>
-							</div>
-							<div class="col-md-4">
-								<div class="brique-photo"></div>
-							</div>
+<!--						<div><h4 class="text-center my-1 titleh4">Photos</h4></div>-->
+<!---->
+<!--						<div class="row">-->
+<!--							<div class="col-md-4">-->
+<!--								<div class="brique-photo"></div>-->
+<!--							</div>-->
+<!--							<div class="col-md-4">-->
+<!--								<div class="brique-photo"></div>-->
+<!--							</div>-->
+<!--							<div class="col-md-4">-->
+<!--								<div class="brique-photo"></div>-->
+<!--							</div>-->
+<!--						-->
+<!--							<div class="col-md-4">-->
+<!--								<div class="brique-photo"></div>-->
+<!--							</div>-->
+<!--							<div class="col-md-4">-->
+<!--								<div class="brique-photo"></div>-->
+<!--							</div>-->
+<!--							<div class="col-md-4">-->
+<!--								<div class="brique-photo"></div>-->
+<!--							</div>-->
 						</div>
 					</div>
 				</div>

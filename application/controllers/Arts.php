@@ -12,7 +12,6 @@ class Arts extends CI_Controller{
 
 	/**
 	 * Listes de tous les livrés crées, en édition, ou achevés et rendu public
-	 *
 	 * @return array livres
 	 */
 	public function index()
@@ -25,22 +24,20 @@ class Arts extends CI_Controller{
             redirect('connexion');
 		}
 
-		if(!empty($_GET['id'])){
-
+		if(!empty($_GET['id']))
+		{
             $data['user_by_id'] = find_user_by_id($_GET['id']);
 
             if(!$data['user_by_id']){
 
                 redirect("connexion");
             }
-
         }
         else{
 
             $user_id = $this->session->userdata('user_id');
 
             redirect("arts?id=".$user_id);
-
         }
 		
 		$id = $this->session->userdata('user_id');
@@ -68,29 +65,24 @@ class Arts extends CI_Controller{
         {
             redirect('connexion');
 		}
-
-        if(!empty($_GET['id'])){
-
+        if(!empty($_GET['id']))
+        {
             /**
              * Load function helper, pour retrouver l'utilisateur grâce à son id
              */
-
             $data['user_by_id'] = find_user_by_id($_GET['id']);
 
             if(!$data['user_by_id']){
 
                 redirect("connexion");
             }
-
         }
-        else{
-
+        else
+        {
             $user_id = $this->session->userdata('user_id');
 
             redirect("arts/create_art?id=".$user_id);
-
         }
-
 		$id = $this->session->userdata('user_id');
 
 		// get the user's data
@@ -128,6 +120,7 @@ class Arts extends CI_Controller{
 
 	public function edit_art()
 	{
+        $data['title'] = 'edit Arts';
 		/**
 		 * empêcher d'arriver sur cette page, si on est pas connecté
 		 */
@@ -135,9 +128,6 @@ class Arts extends CI_Controller{
         {
             redirect('connexion');
 		}
-		
-		$data['title'] = 'edit Arts';
-
 		$id_auteur = $this->session->userdata('user_id');
 
 		$titre = $_GET['title'];
@@ -177,7 +167,7 @@ class Arts extends CI_Controller{
 	public function delete_art()
 	{
 
-		$this->arts_model->delete_arts_model($id);
+		$this->arts_model->delete_arts_model();
 
 		$validator['message'] = "Art supprimé ! ";
 

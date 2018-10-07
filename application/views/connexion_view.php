@@ -2,7 +2,7 @@
 
 	<div class="box-get-started">
 		<div class="row">
-			<div class="col-md-7 text-center mt-5">
+			<div class="col-md-7 col-sm-6 text-center mt-5">
 				<div class="row">
 					<div class="col-md-12" style="margin-top:20%;" >
 						<h2 class="site-name"><?= WEBSITE_NAME; ?></h2>
@@ -13,7 +13,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-5">
+			<div class="col-md-5 col-sm-6">
 				<div>
 					<div class="background-box-form mt-2">
 						<div class="box-form my-5">
@@ -50,7 +50,7 @@
 									<div>
 										<!-- Remember me -->
 										<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input" name="defaultLoginFormRemember" id="defaultLoginFormRemember">
+											<input type="checkbox" class="custom-control-input" name="defaultLoginFormRemember" id="defaultLoginFormRemember" <?= ($this->input->cookie('thag_RememberPseudo', true)) ? 'value="1" checked="checked"' : ' '; ?>>
 											<label class="custom-control-label check" for="defaultLoginFormRemember">Remember me</label>
 										</div>
 									</div>

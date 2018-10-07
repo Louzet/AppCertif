@@ -14,7 +14,7 @@
 
         <!-- page parametres profil -->
 
-        <?php var_dump($user_by_id); ?>
+<!--        --><?php //var_dump($user_by_id); ?>
 
         <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 

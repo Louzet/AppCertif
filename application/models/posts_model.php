@@ -45,7 +45,7 @@ class Posts_model extends CI_Model
 		$this->db->set('published_at', $now);
 		$this->db->set('like_posts', $like_posts = 0);
 		$this->db->set('dislike_posts', $dislike_posts = 0);
-		$this->db->set('content', $contenu);
+		$this->db->set('contenu', $contenu);
 
 		return $this->db->insert($this->table_posts);
 	}

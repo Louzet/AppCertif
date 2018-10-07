@@ -15,7 +15,7 @@ class arts_model extends CI_Model{
         $auteur = $get_user->pseudo;
 
         /**
-         *  enregistrement des datas de nouvel art
+         *  enregistrement des datas du nouvel art
          */
 
 		$this->db->set('titre', $this->input->post('c-titre'));
@@ -59,8 +59,6 @@ class arts_model extends CI_Model{
 	public function delete_arts_model($id)
 	{
         $id_auteur = $this->input->get('id');
-
-        var_dump($id_auteur);
 
         $this->db->where('id_auteur', $id_auteur);
 

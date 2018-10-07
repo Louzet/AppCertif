@@ -8,10 +8,14 @@ class connexion_model extends CI_Model
 	{
 		parent::__construct();
 	}
-    
+
+    /**
+     * @param $pseudo
+     * @param $password
+     * @return mixed
+     */
 	public function login($pseudo, $password)
 	{
-
 		$this->db->select("*");
 
 		$this->db->from($this->table);
@@ -22,32 +26,22 @@ class connexion_model extends CI_Model
 
 		$query = $result->result();
 
-		if(!empty($query)){
-
+		if(!empty($query))
+		{
 			/**
-			 * load helper password, pour verifier la correspondance entre le password hashé
-			 * en bdd, et celui rentré par l'utilisateur
+			 * load helper password, pour verifier la correspondance entre le password hashé en bdd, et celui rentré par l'utilisateur
 			 */
-
 			$this->load->helper('password_helper');
 
-			if(password_verify_helper($password, $query[0]->password)){
-
+			if(password_verify_helper($password, $query[0]->password))
+			{
 				return $query[0]->id;
-
 			}
 		}
-
 		else
 		{
-			$this->output->enable_profiler(TRUE);
-
-			var_dump($result->result());
-
-
-		 	echo "problème de connexion";
+		 	return FALSE;
 		}
-		
     }
  
    

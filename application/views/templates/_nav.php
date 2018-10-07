@@ -12,7 +12,7 @@
 		
 		<?php if($this->session->userdata('connect')) : ?>
 		
-			<ul class="navbar-nav bd-hightlight ml-auto ">
+			<ul class="navbar-nav bd-hightlight ml-auto">
 				<li class="nav-item active px-2">
 					<a class="nav-link" href="<?= site_url(); ?>">Accueil</a>
 				</li>
