@@ -4,7 +4,7 @@ class Parametres_model extends CI_Model{
 
     private $table_users = 'users';
 
-    public function profil_update_model($id, $nom = NULL, $prenom = NULL, $pseudo = NULL, $email = NULL, $metier = NULL)
+    public function profil_update_model($id, $nom = NULL, $prenom = NULL, $pseudo = NULL, $email = NULL, $metier = NULL, $bio = NULL)
     {
         $this->db->where('id', $id);
 
@@ -17,6 +17,8 @@ class Parametres_model extends CI_Model{
         $this->db->set('email', $email);
 
         $this->db->set('metier', $metier);
+
+        $this->db->set('biographie', $bio);
 
         $this->db->replace($this->table_users);
     }

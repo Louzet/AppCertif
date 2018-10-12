@@ -43,6 +43,7 @@ class Profil extends CI_Controller
 		foreach ($data['user'] as $user)
 		{
 			if($user['id'] === $this->session->userdata('user_id')){
+			    var_dump($data);
 				$this->load->view('templates/_header', $data, $hash);
 				$this->load->view('templates/_nav');
 				$this->load->view('profil_view', $data, $user);

@@ -1,7 +1,4 @@
-<?php
-var_dump($_SESSION);
 
-//?>
 <!--<!--$user_id = $this->session->userdata('user_id');-->
 <!--<p>--><?//= get_cookie('thag_RememberPseudo', true) ;?><!--</p>-->
 <!--<p>--><?//= get_cookie('thag_RememberPassword', true) ;?><!--</p>-->
@@ -22,7 +19,6 @@ var_dump($_SESSION);
 				</div>
 				<!-- aside menu -->
 				<ul class="nav-aside">
-				  <li><ion-icon name="home" id="ion-home"></ion-icon><a href="newsfeed.html">Mes actus</a></li>
 				  <li><ion-icon name="contact" id="ion-profil"></ion-icon><a href="<?= site_url(); ?>profil?id=<?= $this->session->userdata['user_id']; ?>">Profil </a></li>
 				  <li><ion-icon name="contacts" id="ion-amis"></ion-icon><a href="<?= site_url("amis"); ?>">Amis</a></li>
 				  <li><ion-icon name="chatboxes" id="ion-message"></ion-icon><a href="<?= base_url('newsfeed_messages'); ?>">Messages</a></li>

@@ -31,7 +31,7 @@
 
                             <?php if($this->session->userdata('user_id') == $_GET['id']): ?>
 
-                            <?php echo form_open_multipart('parametres/do_upload?id='.$user_by_id->id); ?>
+                            <?= form_open_multipart('parametres/do_upload?id='.$user_by_id->id); ?>
 
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
@@ -44,9 +44,15 @@
 
                             <?php form_close(); ?>
 
+
+
                             <?php endif; ?>
                         </div>
+
+
                     </div>
+
+
 
                 </div>
                 <div class="col-md-6">
@@ -59,34 +65,40 @@
                         <!-- Noms -->
                         <div class="form-group mb-3">
                             <label for="FirstName"><strong>Nom</strong></label>
-                            <input type="text" value="<?= $user_by_id->nom; ?>" id="nom" class="form-control" placeholder="Noms">
+                            <input name="nom" type="text" value="<?= $user_by_id->nom; ?>" id="nom" class="form-control" placeholder="Noms">
                         </div>
 
                         <!-- Prénoms -->
                         <div class="form-group mb-3">
                             <label for="LastName"><strong>Prénom</strong></label>
-                            <input type="text" value="<?= $user_by_id->prenom; ?>" id="prenom" class="form-control" placeholder="Prénoms">
+                            <input name="prenom" type="text" value="<?= $user_by_id->prenom; ?>" id="prenom" class="form-control" placeholder="Prénoms">
                         </div>
 
                         <!-- Pseudo -->
                         <div class="form-group mb-3">
                             <label for="Pseudo"><strong>Pseudo</strong></label>
-                            <input type="text" value="<?= $user_by_id->pseudo; ?>" id="pseudo" class="form-control" placeholder="Pseudo">
+                            <input name="pseudo" type="text" value="<?= $user_by_id->pseudo; ?>" id="pseudo" class="form-control" placeholder="Pseudo">
                         </div>
 
                         <!-- E-mail -->
                         <div class="form-group mb-3>
                             <label for="Email"><strong>Email</strong></label>
-                            <input type="text" value="<?= $user_by_id->email; ?>" id="email" class="form-control" placeholder="Email">
+                            <input name="email" type="text" value="<?= $user_by_id->email; ?>" id="email" class="form-control" placeholder="Email">
                         </div>
 
                         <!-- Metier -->
                         <div class="form-group mb-3">
                             <label for="Metier"><strong>Metier</strong></label>
-                            <input type="text" value="<?= $user_by_id->metier; ?>" id="metier" class="form-control" placeholder="Metier">
+                            <input name="metier" type="text" value="<?= $user_by_id->metier; ?>" id="metier" class="form-control" placeholder="Metier">
+                        </div>
+
+                    <!-- biographie -->
+                        <div class="form-group md-form">
+                            <label for="biographie-input"><strong>Biographie</strong></label>
+                            <textarea name="bio" id="biographie-input" class="md-textarea form-control" rows="5" placeholder="Entrez votre Biographie..."></textarea>
                         </div>
                         <!-- Save data button -->
-                        <button class="btn btn-success my-3 btn-block" type="submit" id="btn-update-profil">Enregistrer</button>
+                        <button class="btn btn-success my-3 btn-block" type="submit" id="btn-update-profil"><ion-icon name="cloud-done"></ion-icon> Enregistrer</button>
                     </div>
                     <?= form_close(); ?>
 

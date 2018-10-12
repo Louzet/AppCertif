@@ -3,10 +3,51 @@
     <div class="container" id="container">
         <div class="row">
             <div class="col-md-4 mb-5 mt-5"><!--left col-->
-                <div class="text-center mt-1"></div>
+                <div class="text-center mt-1">
+                    <section class="profil-header">
+                        <div class="ProfileHeaderCard">
+                            <h2 class="ProfileHeaderCard-name ProfileHeaderCard-nameLink u-textInheritColor js-nav"><?= $user_by_id->nom .' '. $user_by_id->prenom; ?></h2>
+
+                            <p class="ProfileHeaderCard-bio u-dir" dir="ltr"><?= (isset($user_by_id->metier)) ? $user_by_id->metier : '' ;?></p>
+
+                            <div class="ProfileHeaderCard-location ">
+                                <span class="Icon Icon--geo Icon--medium" aria-hidden="true" role="presentation"></span>
+                                <span class="ProfileHeaderCard-locationText u-dir" dir="ltr">
+                                    <p data-place-id="405116431e8604c7"><?= (isset($user_by_id->pays)) ? $user_by_id->pays : '' ;?></p>
+
+                                </span>
+                            </div>
+
+                            <div class="ProfileHeaderCard-url  u-hidden">
+                                <span class="Icon Icon--url Icon--medium" aria-hidden="true" role="presentation"></span>
+                                <span class="ProfileHeaderCard-urlText u-dir"></span>
+                            </div>
 
 
+                            <div class="ProfileHeaderCard-joinDate">
+                                <span class="Icon Icon--calendar Icon--medium" aria-hidden="true" role="presentation"></span>
+                                <span class="ProfileHeaderCard-joinDateText js-tooltip u-dir" dir="ltr" data-original-title="<?= $user_by_id->created_at;?>"><?= ($user_by_id->created_at) ? $user_by_id->created_at : '' ;?></span>
+                            </div>
 
+                            <div class="ProfileHeaderCard-birthdate ">
+                                <span class="Icon Icon--balloon Icon--medium" aria-hidden="true" role="presentation"></span>
+                                <span class="ProfileHeaderCard-birthdateText u-dir" dir="ltr">
+                                    <span class="js-tooltip" title="Jour et mois : Les comptes auxquels vous êtes abonné qui vous suivent Année : Vous uniquement">Né le 1 avril 1991</span>
+                                </span>
+                            </div>
+
+
+                    </section>
+                    <section id="experience-section" class="pv-profile-section experience-section ember-view my-5"><!---->
+                        <header class="pv-profile-section__card-header">
+                            <h2 class="pv-profile-section__card-heading Sans-21px-black-85%">
+                                Expériences
+                            </h2>
+
+
+                        </header>
+            <!----></section>
+                </div>
             </div><!--/col-3-->
             <div class="col-md-5"><p class="text-center">Main</p></div>
             <div class="col-md-3">

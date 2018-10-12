@@ -40,8 +40,9 @@
 			<div class="ckeditor_thag">
 				<h4>Donnez un titre à votre art</h4>
 				<?= form_open('arts/create', 'data-parsley-validate id="form-create-arts"', ""); ?>
-					<span class="">
+					<span>
 					<?php foreach($edit_arts as $arts) : ?><!-- foreach -->
+                        <?php var_dump($arts); ?>
 						<?= form_open('arts/save_title', 'data-parsley-validate', ""); ?>
 							<div class="form-row">
 								<div class="col-md-6 mb-3">

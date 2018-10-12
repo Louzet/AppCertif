@@ -100,7 +100,7 @@ $(function(){
 					html += '<tr>'+
 
 								'<td class="text-center">'+data[i].pseudo+'</td>'+
-								'<td class="text-center">'+'lien vers profil'+'</td>'+
+								'<td class="text-center">'+'<a href="http://localhost/AppCertif/profil?id='+data[i].id+'" class="nav-link">'+'lien vers profil'+'</a>'+'</td>'+
 								'<td class="text-center">'+'envoyer msg'+'</td>'+
 								'<td class="text-center">'+
 									'<button class="btn btn-warning">Bloquer</button>'+

@@ -78,15 +78,31 @@ class arts_model extends CI_Model{
 
 	}
 
-	public function show_arts_model($titre, $id_auteur)
+	public function show_arts_model()
 	{
+	    $titre = $this->input->get('titre');
+
+	    $id_auteur = $this->input->get('titre');
+
+	    var_dump($titre);
+
+        $this->db->select('*');
+
+        $this->db->from($this->table_arts);
+
 		$this->db->where('titre', $titre);
 
-		$this->db->where('id_auteur', $id_auteur);
+		$query = $this->db->get();
 
-		$query = $this->db->get($this->table_arts);
+        if($this->db->affected_rows() > 0){
 
-		return $query->result();
+            return $query->result();
+
+        }else{
+
+            return false;
+
+        }
 	}
 
 	public function edit_arts_model($titre, $id_auteur)

@@ -8,7 +8,6 @@ class Amis extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		
 
 	}
 
@@ -16,6 +15,29 @@ class Amis extends CI_Controller
 	{
 
 		$data['title'] = 'Liste d\'amis';
+
+        if(!$this->session->userdata('connect'))
+        {
+            redirect('connexion');
+        }
+        if(!empty($_GET['id']))
+        {
+            /**
+             * Load function helper, pour retrouver l'utilisateur grâce à son id
+             */
+            $data['user_by_id'] = find_user_by_id($_GET['id']);
+
+            if(!$data['user_by_id']){
+
+                redirect("connexion");
+            }
+        }
+        else
+        {
+            $user_id = $this->session->userdata('user_id');
+
+            redirect("amis?id=".$user_id);
+        }
 
 		$this->load->view('templates/_header', $data);
 

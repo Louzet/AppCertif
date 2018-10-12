@@ -74,21 +74,21 @@ class Parametres extends CI_Controller{
 
     public function update_profil_config()
     {
-        $get_user = find_user_by_id($this->session->userdata('user_id'));
+        $id = $this->session->userdata('user_id');
 
-        $id = $get_user->id;
-
-        $nom = $this->input->post('nom');
+        $nom    = $this->input->post('nom');
 
         $prenom = $this->input->post('prenom');
 
         $pseudo = $this->input->post('pseudo');
 
-        $email = $this->input->post('email');
+        $email  = $this->input->post('email');
 
         $metier = $this->input->post('metier');
 
-        $data = $this->parametres_model->profil_update_model($id, $nom, $prenom, $pseudo, $email, $metier);
+        $bio    = $this->input->post('bio');
+
+        $data   = $this->parametres_model->profil_update_model($id, $nom, $prenom, $pseudo, $email, $metier, $bio);
 
         echo json_encode($data);
     }

@@ -78,6 +78,31 @@ class Connexion extends  CI_Controller
                 set_cookie($cookie1);
                 set_cookie($cookie2);
             }
+            else{
+                $cookie1 = [
+                    'name'     => 'RememberPseudo',
+                    'value'    => '',
+                    'expire'   => '-3600',
+                    'path'     => '/',
+                    'secure'   => true,
+                    'httponly' => true,
+                    'prefix'   => 'thag_',
+                    'domaine'  => '.thag-service'
+                ];
+
+                $cookie2 = [
+                    'name'     => 'RememberPassword',
+                    'value'    => '',
+                    'expire'   => '-3600',
+                    'path'     => '/',
+                    'secure'   => true,
+                    'httponly' => true,
+                    'prefix'   => 'thag_',
+                    'domaine'  => '.thag-service'
+                ];
+                set_cookie($cookie1);
+                set_cookie($cookie2);
+            }
 
 			$user_id  = $this->connexion_model->login($pseudo, $password);
 
@@ -233,9 +258,9 @@ class Connexion extends  CI_Controller
 						 */
 				
 						if($this->form_validation->run() == false ){
-							var_dump($_GET);
+
 							$uri = $_SERVER['REQUEST_URI'];
-							var_dump($uri);
+
 							// var_dump(current_url());
 							// die();
 							// $id = $_GET['id'];

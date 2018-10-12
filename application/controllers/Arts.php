@@ -89,7 +89,7 @@ class Arts extends CI_Controller{
 		$data['user'] = $this->users_model->profil($id);
 
 		$this->load->view('templates/_header', $data);
-        $this->load->view('templates/_nav');
+        $this->load->view('templates/_nav', $data);
         $this->load->view('arts/create_arts_view', $data);
 		$this->load->view('templates/_footer');
 
@@ -128,14 +128,34 @@ class Arts extends CI_Controller{
         {
             redirect('connexion');
 		}
-		$id_auteur = $this->session->userdata('user_id');
+        if(!empty($_GET['id']))
+        {
+            /**
+             * Load function helper, pour retrouver l'utilisateur grâce à son id
+             */
+            $data['user_by_id'] = find_user_by_id($_GET['id']);
+
+            if(!$data['user_by_id']){
+
+                redirect("connexion");
+            }
+        }
+        else
+        {
+            $user_id = $this->session->userdata('user_id');
+
+            redirect("arts/edit_art?id=".$user_id);
+        }
+		$id_auteur = $_GET['id'];
 
 		$titre = $_GET['title'];
 		
 		$data['edit_arts'] = $this->arts_model->edit_arts_model($titre, $id_auteur);
 
+		var_dump($data['edit_arts']);
+
 		$this->load->view('templates/_header', $data);
-        $this->load->view('templates/_nav');
+        $this->load->view('templates/_nav', $data);
         $this->load->view('arts/edit_arts_view', $data);
         $this->load->view('templates/_footer');
 	}
@@ -149,17 +169,34 @@ class Arts extends CI_Controller{
         {
             redirect('connexion');
 		}
+        if(!empty($_GET['id']))
+        {
+            /**
+             * Load function helper, pour retrouver l'utilisateur grâce à son id
+             */
+            $data['user_by_id'] = find_user_by_id($_GET['id']);
+
+            if(!$data['user_by_id']){
+
+                redirect("connexion");
+            }
+        }
+        else
+        {
+            $user_id = $this->session->userdata('user_id');
+
+            redirect("arts/show_art?id=".$user_id);
+        }
 		
 		$data['title'] = 'edit Arts';
 
-		$titre = $_GET['titre'];
-
-		$id_auteur = $this->session->userdata('user_id');
 		
-		$data['show_arts'] = $this->arts_model->show_arts_model($titre, $id_auteur);
+		$data['show_arts'] = $this->arts_model->show_arts_model();
+
+		var_dump($this->arts_model->show_arts_model());
 
 		$this->load->view('templates/_header', $data);
-        $this->load->view('templates/_nav');
+        $this->load->view('templates/_nav', $data);
         $this->load->view('arts/show_arts_view', $data);
         $this->load->view('templates/_footer');
 	}

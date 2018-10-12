@@ -2,7 +2,7 @@
 
 class amis_model extends CI_Model
 {
-	private $table = "liste_amis";
+	private $table = "users";
 
 	public function liste_amis_model()
 	{

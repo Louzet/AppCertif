@@ -16,28 +16,28 @@
 				<li class="nav-item active px-2">
 					<a class="nav-link" href="<?= site_url(); ?>">Accueil</a>
 				</li>
-
-				<li class="nav-item px-2">
-					<a class="nav-link" href="<?= site_url(); ?>">Populaire</a>
+                <li class="nav-item px-2">
+					<a class="nav-link" href="<?= site_url("amis"); ?>">Amis</a>
 				</li>
+                <li class="nav-item px-2">
+					<a class="nav-link" href="<?= base_url(); ?>arts?id=<?= $user_by_id->id; ?>">Arts</a>
+				</li>
+                <li class="nav-item px-2 ml-auto">
+                    <a class="nav-link" href="<?= site_url(); ?>profil?id=<?= $this->session->userdata['user_id']; ?>">Profil</a>
+                </li>
 
 			</ul>
 			<form class="mx-auto my-auto m-perso">
 				<div class="form-group">
-					
 					<input type="text" class="form-control" name="search_people" id="search_people" placeholder="Vous recherchez quelque chose...">
 					<div id="display_result" class="display_result">blablabla</div>
-					
 				</div>
 				
 			</form>
 			<ul class="navbar-nav navbar-right bd-hightlight ml-auto" id="navbar-right">
 				<li class="nav-item active">
-					<ul class="navbar-nav navbar-right mr-auto mx-4">
-						
-						<li class="nav-item active px-2">
-							<a class="nav-link" href="#">Catégorie</a>
-						</li>
+					<ul class="navbar-nav navbar-right mr-auto">
+
 
 						<li>
 							<div class="btn-group">
